@@ -1,0 +1,16 @@
+{
+    "restrictions": [
+        "vegans",
+        "vegetarians",
+        "coeliacs",
+        "lactose",
+        "eggs",
+        "milks",
+        "peanuts",
+        "shellfish",
+        "wheat",
+        "soy",
+        "fish",
+        "gluten"
+    ]
+}
