@@ -1,5 +1,6 @@
 package com.illinois.beep;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -13,10 +14,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.illinois.beep.database.ProductDatabase;
+import com.illinois.beep.database.RestrictionDatabase;
 import com.illinois.beep.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +49,17 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // init Mock Database
+        try {
+            AssetManager am = getApplicationContext().getAssets();
+            InputStream productData = am.open("products.json");
+            InputStream restrictionData = am.open("restrictions.json");
+            ProductDatabase.loadData(productData);
+            RestrictionDatabase.loadData(restrictionData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
