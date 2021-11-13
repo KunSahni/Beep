@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="saffron">#F3C52E</color>
-    <color name="moss">#8E8D5D</color>
-    <color name="yellow">#EAD744</color>
-    <color name="max_green_yellow">#CFDC5F</color>
-    <color name="may_green">#659857</color>
+    <color name="pale_pink">#EFD3D7</color>
+    <color name="lavendar">#CBC0D3</color>
+    <color name="manatee">#8E9AAF</color>
+    <color name="pale_purple">#FEEAFA</color>
+    <color name="lavendar_web">#DEE2FF</color>
     <color name="space">#577275</color>
     <color name="brown">#A8603E</color>
 </resources>
