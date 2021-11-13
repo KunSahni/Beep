@@ -22,6 +22,7 @@ public class ProductDatabase {
     static public void loadData(InputStream data) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         db = objectMapper.readValue(data, new TypeReference<Map<String, Product>>(){});
+
     }
 
     public static Map<String, Product> getDb() {
