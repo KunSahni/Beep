@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="klein_blue">#05299E</color>
-    <color name="dark_blue">#2C4CBF</color>
-    <color name="blue">#4A5EE3</color>
-    <color name="purple">#947BD3</color>
-    <color name="lilac">#C291BA</color>
-    <color name="pastel_pink">#F0A7A0</color>
-    <color name="cyclamen">#F26CA7</color>
+    <color name="pale_pink">#EFD3D7</color>
+    <color name="lavendar">#CBC0D3</color>
+    <color name="manatee">#8E9AAF</color>
+    <color name="pale_purple">#FEEAFA</color>
+    <color name="lavendar_web">#DEE2FF</color>
+    <color name="space">#577275</color>
+    <color name="brown">#A8603E</color>
 </resources>
