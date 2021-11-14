@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class RestrictionDatabase {
@@ -12,9 +13,9 @@ public class RestrictionDatabase {
 
     static List<String> restrictions;
 
-    static public void loadData() throws IOException {
+    static public void loadData(InputStream data) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        restrictions = objectMapper.readValue(new File(sourcePath),
+        restrictions = objectMapper.readValue(data,
                 new TypeReference<List<String>>(){});
     }
 

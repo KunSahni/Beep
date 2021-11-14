@@ -9,13 +9,14 @@ import com.illinois.beep.database.RestrictionDatabase;
 
 import org.junit.Test;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
 public class RestrictionDatabaseTest {
     @Test
     public void getRestrictionsFromDatabase() throws IOException {
-        RestrictionDatabase.loadData();
+        RestrictionDatabase.loadData(new FileInputStream("src/main/assets/restrictions.json"));
         List<String> restrictions = RestrictionDatabase.getRestrictions();
         assertNotNull(restrictions);
         assertEquals(restrictions.size(), 12);
