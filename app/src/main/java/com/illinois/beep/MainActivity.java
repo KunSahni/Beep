@@ -42,24 +42,24 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        binding.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
-        // init Mock Database
-        try {
-            AssetManager am = getApplicationContext().getAssets();
-            InputStream productData = am.open("products.json");
-            InputStream restrictionData = am.open("restrictions.json");
-            ProductDatabase.loadData(productData);
-            RestrictionDatabase.loadData(restrictionData);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        // init Mock Database
+//        try {
+//            AssetManager am = getApplicationContext().getAssets();
+//            InputStream productData = am.open("products.json");
+//            InputStream restrictionData = am.open("restrictions.json");
+//            ProductDatabase.loadData(productData);
+//            RestrictionDatabase.loadData(restrictionData);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
