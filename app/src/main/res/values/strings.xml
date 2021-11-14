@@ -10,4 +10,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="back_button_text">home</string>
+    <string name="edit_button_text">edit</string>
+    <string name="profile_screen_header">important restrictions</string>
+    <string name="user_name">user_name</string>
+    <string name="pronouns">pronouns</string>
+    <string name="add_person_cue">Add person</string>
+    <string name="edit_restrictions_cue">Modify restrictions</string>
+    <string name="icong_group_desc">Edit people button</string>
+    <string name="icon_back_desc">Back</string>
+    <string name="icon_help_desc">Display help menu</string>
 </resources>
