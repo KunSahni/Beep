@@ -1,9 +1,11 @@
 package com.illinois.beep;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,7 @@ import com.illinois.beep.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 
+    private String LOG_TAG = "Test";
     private FragmentFirstBinding binding;
 
     @Override
@@ -34,6 +37,18 @@ public class FirstFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
+            }
+        });
+
+        ImageButton peopleBtn = binding.peopleButton;
+        ImageButton cameraBtn = binding.cameraButton;
+        ImageButton editBtn = binding.cameraButton;
+
+        // we can add more listeners if needed
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(LOG_TAG, "Camera button clicked");
             }
         });
     }
