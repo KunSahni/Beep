@@ -1,5 +1,6 @@
 package com.illinois.beep;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import com.journeyapps.*;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+
+// Reference tutorial: https://code.luasoftware.com/tutorials/android/android-scan-qrcode-library/
+// as well as ZXING documentation
 
 public class FirstFragment extends Fragment {
 
@@ -50,7 +55,7 @@ public class FirstFragment extends Fragment {
         ImageButton cameraBtn = binding.cameraButton;
         ImageButton editBtn = binding.cameraButton;
 
-        IntentIntegrator integrator = new IntentIntegrator(getActivity());
+        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(FirstFragment.this);
         integrator.setOrientationLocked(false); // don't force landscape
 
 
@@ -78,6 +83,14 @@ public class FirstFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    // Thank you: https://stackoverflow.com/questions/37251583/how-to-start-zxing-on-a-fragment :))
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        String barcode = result.getContents();
+        Log.d(LOG_TAG, "Barcode is" + barcode);
     }
 
 }
