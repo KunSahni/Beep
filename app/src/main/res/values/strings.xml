@@ -10,7 +10,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="back_button_text">home</string>
+    <string name="back_button_text">Home</string>
     <string name="edit_button_text">edit</string>
     <string name="profile_screen_header">important restrictions</string>
     <string name="user_name">user_name</string>
