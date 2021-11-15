@@ -31,14 +31,15 @@
         app:layout_constraintTop_toBottomOf="@id/textview_first"/>
 
     <ImageButton
+        android:id="@+id/people_button"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:background="@drawable/round_button"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="300dp"
         android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_menu_search"
+        android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
+        android:src="@android:drawable/ic_menu_search"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,13 +47,14 @@
         app:layout_constraintTop_toBottomOf="@id/list_view" />
 
     <ImageButton
+        android:id="@+id/camera_button"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:background="@drawable/round_button"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_menu_search"
+        android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
+        android:src="@android:drawable/ic_menu_search"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,13 +62,14 @@
         app:layout_constraintTop_toBottomOf="@id/list_view" />
 
     <ImageButton
+        android:id="@+id/edit_button"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:background="@drawable/round_button"
         android:layout_marginStart="300dp"
         android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_menu_search"
+        android:background="@drawable/round_button"
         android:gravity="center_vertical|center_horizontal"
+        android:src="@android:drawable/ic_menu_search"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
