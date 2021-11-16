@@ -112,17 +112,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_restrictions_cue"
+                android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/icon_edit_button"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/cardview_dark_background"/>
+                android:backgroundTint="@color/red"/>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/add_person_cue"
+                android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/icon_add_person"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/gray"
-                />
+                android:backgroundTint="@color/teal" />
         </LinearLayout>
 
     </LinearLayout>

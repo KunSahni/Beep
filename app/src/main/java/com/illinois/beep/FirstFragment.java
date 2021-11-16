@@ -1,11 +1,15 @@
 package com.illinois.beep;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,9 +22,21 @@ import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.illinois.beep.databinding.FragmentFirstBinding;
+
+import com.journeyapps.*;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
+
+// Reference tutorial: https://code.luasoftware.com/tutorials/android/android-scan-qrcode-library/
+// as well as ZXING documentation
+
 
 public class FirstFragment extends Fragment {
 
+    private String LOG_TAG = "Test";
     private FragmentFirstBinding binding;
     private ListView l;
 
@@ -60,12 +76,46 @@ public class FirstFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
+
+        ImageButton peopleBtn = binding.peopleButton;
+        ImageButton cameraBtn = binding.cameraButton;
+        ImageButton editBtn = binding.cameraButton;
+
+        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(FirstFragment.this);
+        integrator.setOrientationLocked(false); // don't force landscape
+
+
+//        final ActivityResultLauncher<ScanOptions> barcodeLauncher = registerForActivityResult(new ScanContract(),
+//                result -> {
+//                    if(result.getContents() == null) {
+//                        Toast.makeText(MyActivity.this, "Cancelled", Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Toast.makeText(MyActivity.this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//                    }
+//                });
+
+        // we can add more listeners if needed
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(LOG_TAG, "Camera button clicked");
+                integrator.initiateScan();
+            }
+        });
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    // Thank you: https://stackoverflow.com/questions/37251583/how-to-start-zxing-on-a-fragment :))
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        String barcode = result.getContents();
+        Log.d(LOG_TAG, "Barcode is" + barcode);
     }
 
 }

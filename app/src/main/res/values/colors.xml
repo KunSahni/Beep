@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#888888</color>
+    <color name="white">#FFFFFF</color>
+    <color name="off_white">#F9F9F9</color>
+    <color name="light_gray">#F2F4F4</color>
+    <color name="mid_gray">#E4EBEF</color>
+    <color name="dark_mid_gray">#B5B7BE</color>
+    <color name="gray">#888993</color>
     <color name="black">#3A3B3F</color>
-    <color name="off_gray">#F2F4F4</color>
-    <color name="gray">#888888</color>
-    <color name="lavendar_web">#DEE2FF</color>
-    <color name="space">#577275</color>
-    <color name="brown">#A8603E</color>
+    <color name="red">#E44A3D</color>
+    <color name="teal">#00C8BE</color>
 </resources>
