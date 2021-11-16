@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
+    <TextView
+        android:id="@+id/textview_test_add_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="4dp"
+        android:gravity="left"
+        android:text="Test Add Item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_first"
@@ -20,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/list_view"
+        android:id="@+id/my_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
@@ -44,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_view" />
+        app:layout_constraintTop_toBottomOf="@id/my_list_view" />
 
     <ImageButton
         android:id="@+id/camera_button"
@@ -59,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_view" />
+        app:layout_constraintTop_toBottomOf="@id/my_list_view" />
 
     <ImageButton
         android:id="@+id/edit_button"
@@ -74,7 +84,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_view" />
+        app:layout_constraintTop_toBottomOf="@id/my_list_view" />
 
 <!--    <Button-->
 <!--        android:layout_width="match_parent"-->
