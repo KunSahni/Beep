@@ -15,21 +15,21 @@ import java.util.List;
 
 public class MyListAdapter extends BaseAdapter {
     Context context;
-    List<Product> productList;
+    List<MyListItem> myList;
 
-    public MyListAdapter(Context context, List<Product> productList) {
+    public MyListAdapter(Context context, List<MyListItem> myList) {
         this.context = context;
-        this.productList = productList;
+        this.myList = myList;
     }
 
     @Override
     public int getCount() {
-        return productList.size();
+        return myList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return productList.get(position);
+        return myList.get(position);
     }
 
     @Override
@@ -49,18 +49,21 @@ public class MyListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        LayoutInflater inflater = (LayoutInflater.from(context));
-        View view = inflater.inflate(R.layout.my_list_item, null);
-
-        Product product = productList.get(position);
+        MyListItem item = myList.get(position);
+        Product product = item.getProduct();
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
         Picasso.get().load("https://cloudfour.com/examples/img-currentsrc/images/kitten-large.png").into(viewHolder.restrictionIcon);
 
         viewHolder.productName.setText(product.getName());
-        viewHolder.productQuantity.setText("1");
+        viewHolder.productQuantity.setText(item.getQuantity().toString());
 
-        return view;
+        return convertView;
+    }
+
+    public void updateMyList(List<MyListItem> myList) {
+        this.myList = myList;
+        notifyDataSetChanged();
     }
 
     /**

@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.illinois.beep.database.Product;
@@ -30,10 +31,15 @@ public class FirstFragment extends Fragment {
     ) {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+
         l = view.findViewById(R.id.my_list_view);
-        List<Product> mockProductList = new ArrayList<>(ProductDatabase.getDb().values());
-        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), mockProductList);
+        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), new ArrayList<>());
         l.setAdapter(adapter);
+
+        MyListViewModel myListViewModel = new ViewModelProvider(this).get(MyListViewModel.class);
+
+        myListViewModel.getMyList().observe(getViewLifecycleOwner(), adapter::updateMyList);
 
         return view;
 
@@ -50,7 +56,6 @@ public class FirstFragment extends Fragment {
             }
         });
     }
-
 
     @Override
     public void onDestroyView() {
