@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.Beep" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/gray</item>
-        <item name="colorPrimaryVariant">@color/space</item>
+        <item name="colorPrimary">@color/dark_mid_gray</item>
+        <item name="colorPrimaryVariant">@color/dark_mid_gray</item>
         <item name="colorOnPrimary">@color/gray</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/white</item>
-        <item name="colorSecondaryVariant">@color/lavendar_web</item>
-        <item name="colorOnSecondary">@color/off_gray</item>
+        <item name="colorSecondaryVariant">@color/light_gray</item>
+        <item name="colorOnSecondary">@color/gray</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
