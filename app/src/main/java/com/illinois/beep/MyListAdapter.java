@@ -34,7 +34,7 @@ public class MyListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position; // TODO: need some id?
+        return position;
     }
 
     @Override
@@ -53,6 +53,8 @@ public class MyListAdapter extends BaseAdapter {
         Product product = item.getProduct();
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
+
+        // TODO: replace the icon with restriction hint icon
         Picasso.get().load("https://cloudfour.com/examples/img-currentsrc/images/kitten-large.png").into(viewHolder.restrictionIcon);
 
         viewHolder.productName.setText(product.getName());

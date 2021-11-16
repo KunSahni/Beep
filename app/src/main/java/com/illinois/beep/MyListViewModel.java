@@ -24,8 +24,11 @@ public class MyListViewModel extends ViewModel {
     private void loadMyList() {
         // Do an asynchronous operation to fetch users.
         List<MyListItem> items = new ArrayList<>();
+        int counter = 3;
         for (Product product: ProductDatabase.getDb().values()) {
             items.add(new MyListItem(product, 1));
+            counter -= 1;
+            if (counter == 0) break; // only add the some elements for demo
         }
 
         myList.postValue(items);

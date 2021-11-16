@@ -37,7 +37,7 @@ public class FirstFragment extends Fragment {
         MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), new ArrayList<>());
         l.setAdapter(adapter);
 
-        MyListViewModel myListViewModel = new ViewModelProvider(this).get(MyListViewModel.class);
+        MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
 
         myListViewModel.getMyList().observe(getViewLifecycleOwner(), adapter::updateMyList);
 
@@ -47,6 +47,11 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.textviewTestAddItem.setOnClickListener(v -> {
+            NavHostFragment.findNavController(FirstFragment.this)
+                    .navigate(R.id.action_FirstFragment_to_addItemFragment);
+        });
 
         binding.textviewFirst.setOnClickListener(new View.OnClickListener() {
             @Override
