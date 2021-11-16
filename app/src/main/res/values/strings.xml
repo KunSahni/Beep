@@ -20,4 +20,6 @@
     <string name="icong_group_desc">Edit people button</string>
     <string name="icon_back_desc">Back</string>
     <string name="icon_help_desc">Display help menu</string>
+    <string name="name_prompt">Name:</string>
+    <string name="submit_cue">SUBMIT</string>
 </resources>
