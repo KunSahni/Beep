@@ -4,6 +4,9 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+/**
+ * Static class which contains instance to db, use this for all db operations
+ */
 public class ConcreteAppDatabase {
     private static AppDatabase db;
     private static ConcreteAppDatabase instance = null;

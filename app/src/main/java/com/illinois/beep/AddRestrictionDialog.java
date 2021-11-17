@@ -14,6 +14,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illinois.beep.database.AppDatabase;
 import com.illinois.beep.database.User;
 
+/**
+ * This class is a custom dialog presented to user when he wants to add a restriction
+ * to one of the existing users on the app
+ */
 public class AddRestrictionDialog extends Dialog implements
         android.view.View.OnClickListener {
 

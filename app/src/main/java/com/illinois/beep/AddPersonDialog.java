@@ -13,6 +13,9 @@ import com.illinois.beep.database.AppDatabase;
 import com.illinois.beep.database.ConcreteAppDatabase;
 import com.illinois.beep.database.User;
 
+/**
+ * This class is a custom dialog presented to user when he wants to add a person to the app
+ */
 public class AddPersonDialog extends Dialog implements android.view.View.OnClickListener {
 
     private Activity c;
@@ -32,9 +35,13 @@ public class AddPersonDialog extends Dialog implements android.view.View.OnClick
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.insert_name_popup);
+
+        //Find all UI elements
         cancelButton = findViewById(R.id.cancel_btn);
         submitButton = findViewById(R.id.submit_btn);
         newNameEdit = findViewById(R.id.new_name_edit);
+
+        //Set on click listeners
         cancelButton.setOnClickListener(this);
         submitButton.setOnClickListener(this);
     }
@@ -44,6 +51,7 @@ public class AddPersonDialog extends Dialog implements android.view.View.OnClick
 
         switch (view.getId()) {
             case R.id.submit_btn:
+                //Read name from TextEdit and insert into db
                 String newName = newNameEdit.getText().toString();
                 AppDatabase db = ConcreteAppDatabase.getInstance(getContext());
                 db.userDao().insertOne(new User(newName));

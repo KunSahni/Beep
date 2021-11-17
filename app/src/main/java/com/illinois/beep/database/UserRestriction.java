@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * This class represents a dietary restriction and the user associated with it
+ */
 @Entity(primaryKeys={"personName", "restriction"})
 public class UserRestriction {
     @PrimaryKey
