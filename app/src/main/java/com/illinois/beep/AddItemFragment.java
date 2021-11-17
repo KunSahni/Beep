@@ -43,7 +43,7 @@ public class AddItemFragment extends Fragment {
             public void onClick(View view) {
                 List<MyListItem> list = myListViewModel.getMyList().getValue();
                 assert list != null;
-                list.add(new MyListItem(ProductDatabase.get("4c7ff1cd-496c-4df3-9e20-5758c366d853"), 10));
+                list.add(new MyListItem(ProductDatabase.get("12960407"), 10));
             }
         });
     }

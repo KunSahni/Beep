@@ -29,7 +29,7 @@ public class ProductDatabase {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public static Product get(String uuid) {
-        return ProductDatabase.getDb().getOrDefault(uuid, null);
+    public static Product get(String id) {
+        return ProductDatabase.getDb().getOrDefault(id, null);
     }
 }
