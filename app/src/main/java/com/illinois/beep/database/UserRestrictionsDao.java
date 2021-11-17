@@ -11,6 +11,18 @@ import java.util.List;
 public interface UserRestrictionsDao {
 
     /**
+     * @return all users contained in databases
+     */
+    @Query("SELECT * FROM UserRestriction WHERE restriction=null")
+    List<UserRestriction> getAll();
+
+    /**
+     * @return all users contained in databases
+     */
+    @Query("SELECT DISTINCT personName FROM UserRestriction")
+    List<String> getAllUsers();
+
+    /**
      * @param personName name of person whose restrictions you want to lookup
      * @return list of restrictions for person with the passed name
      */

@@ -11,10 +11,10 @@ import androidx.room.PrimaryKey;
 public class UserRestriction {
     @PrimaryKey
     public String personName;
-    public String restriction;
+    public String restriction; //if null than it's used to indicate the add restriction row.
     public int favorite;
 
-    public UserRestriction(@NonNull String personName, @NonNull String restriction){
+    public UserRestriction(@NonNull String personName, String restriction){
         this.personName = personName;
         this.restriction = restriction;
         favorite = 0;

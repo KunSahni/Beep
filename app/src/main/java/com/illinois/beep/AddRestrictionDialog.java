@@ -12,7 +12,7 @@ import androidx.room.Room;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illinois.beep.database.AppDatabase;
-import com.illinois.beep.database.User;
+import com.illinois.beep.database.ConcreteAppDatabase;
 
 /**
  * This class is a custom dialog presented to user when he wants to add a restriction
@@ -47,15 +47,14 @@ public class AddRestrictionDialog extends Dialog implements
         submitButton.setOnClickListener(this);
     }
 
+    //todo: implement class
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
             case R.id.submit_btn:
                 String newName = newNameEdit.getText().toString();
-                AppDatabase db = Room.databaseBuilder(getContext(),
-                        AppDatabase.class, "database-name").build();
-                db.userDao().insertOne(new User(newName));
+                AppDatabase db = ConcreteAppDatabase.getInstance(c);
                 c.finish();
                 break;
             case R.id.cancel_btn:

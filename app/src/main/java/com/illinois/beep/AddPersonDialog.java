@@ -11,7 +11,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illinois.beep.database.AppDatabase;
 import com.illinois.beep.database.ConcreteAppDatabase;
-import com.illinois.beep.database.User;
+import com.illinois.beep.database.UserRestriction;
 
 /**
  * This class is a custom dialog presented to user when he wants to add a person to the app
@@ -54,7 +54,7 @@ public class AddPersonDialog extends Dialog implements android.view.View.OnClick
                 //Read name from TextEdit and insert into db
                 String newName = newNameEdit.getText().toString();
                 AppDatabase db = ConcreteAppDatabase.getInstance(getContext());
-                db.userDao().insertOne(new User(newName));
+                db.userRestrictionsDao().insertOne(new UserRestriction(newName, null));
                 c.finish();
                 break;
             case R.id.cancel_btn:
