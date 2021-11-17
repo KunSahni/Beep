@@ -10,10 +10,20 @@
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="564dp"
+        android:background="#0000"
         android:text="Add Item"
         android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/button_random_restriction"
+        app:layout_constraintStart_toStartOf="@id/button_random_restriction" />
+
+    <Button
+        android:id="@+id/button_random_restriction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="Random Restriction"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
