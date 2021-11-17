@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.illinois.beep.database.Product;
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.database.RestrictionDatabase;
-import com.illinois.beep.databinding.FragmentAddItemBinding;
+import com.illinois.beep.databinding.FragmentTestBinding;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,9 +23,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class AddItemFragment extends Fragment {
+public class TestFragment extends Fragment {
 
-    private FragmentAddItemBinding binding;
+    private FragmentTestBinding binding;
 
     @Override
     public View onCreateView(
@@ -33,7 +33,7 @@ public class AddItemFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentAddItemBinding.inflate(inflater, container, false);
+        binding = FragmentTestBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }

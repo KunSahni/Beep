@@ -15,7 +15,7 @@
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_addItemFragment"
+            android:id="@+id/action_FirstFragment_to_TestFragment"
             app:destination="@id/addItemFragment" />
     </fragment>
     <fragment
@@ -30,6 +30,6 @@
     </fragment>
     <fragment
         android:id="@+id/addItemFragment"
-        android:name="com.illinois.beep.AddItemFragment"
+        android:name="com.illinois.beep.TestFragment"
         android:label="AddItemFragment" />
 </navigation>
