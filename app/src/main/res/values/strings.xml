@@ -2,7 +2,7 @@
     <string name="app_name">Beep</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">My List</string>
+    <string name="first_fragment_label"><font color = "@color/black">My List</font></string>
     <string name="second_fragment_label">Profile</string>
     <string name="profile">My Profile</string>
     <string name="item">Item</string>

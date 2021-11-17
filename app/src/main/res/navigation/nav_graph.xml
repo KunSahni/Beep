@@ -9,6 +9,7 @@
         android:id="@+id/FirstFragment"
         android:name="com.illinois.beep.FirstFragment"
         android:label="@string/first_fragment_label"
+
         tools:layout="@layout/fragment_first">
 
         <action
