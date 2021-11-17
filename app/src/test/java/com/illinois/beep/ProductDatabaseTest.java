@@ -16,9 +16,9 @@ public class ProductDatabaseTest {
     @Test
     public void getElementFromDatabase() throws IOException {
         ProductDatabase.loadData(new FileInputStream("src/main/assets/products.json"));
-        Product product = ProductDatabase.get("4c7ff1cd-496c-4df3-9e20-5758c366d853");
+        Product product = ProductDatabase.get("84358272");
         assertNotNull(product);
-        assertEquals(product.getName(), "Great Value Fat Free Evaporated Milk 12 oz");
+        assertEquals(product.getName(), "LA LECHERA Sweetened Condensed Milk 14 oz.");
     }
 
 }

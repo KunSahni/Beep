@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Product {
-    String uuid;
+    String id;
     String name;
     String description;
 
@@ -21,8 +21,8 @@ public class Product {
     public Product() {
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getId() {
+        return id;
     }
 
     public String getName() {

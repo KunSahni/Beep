@@ -1,402 +1,402 @@
 {
-    "b307ae13-b65d-4d4a-93f4-d547764779b4": {
-        "name": "Eagle Brand Sweetened Condensed Milk, 14 oz",
-        "description": "America's Most Trusted, Made with 100% US Milk, No Artificial Ingredients, Just Milk & Sugar, Gluten Free, Kosher - Dairy",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "6g",
-            "calories": 30,
-            "protein": "3g",
-            "carbohydrate": "7g",
-            "cholesterol": "100mg",
-            "sodium": "38mg"
-        },
-        "ingredients": [
-            "Milk",
-            "Sugar"
-        ],
-        "substitutes": [
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "b307ae13-b65d-4d4a-93f4-d547764779b4",
-        "image_url": "https://i5.walmartimages.com/asr/d2bc1132-8667-4097-87e6-b097b995f8fa.eb718edd1809c814c283bb8681df239d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": false,
-            "vegetarians": false,
-            "coeliacs": false,
-            "lactose": false,
-            "eggs": false,
-            "milks": true,
-            "peanuts": true,
-            "shellfish": true,
-            "wheat": true,
-            "soy": true,
-            "fish": false,
-            "gluten": true
-        }
+  "12960407": {
+    "name": "Eagle Brand Sweetened Condensed Milk, 14 oz",
+    "description": "America's Most Trusted, Made with 100% US Milk, No Artificial Ingredients, Just Milk & Sugar, Gluten Free, Kosher - Dairy",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "7g",
+      "calories": 100,
+      "protein": "3g",
+      "carbohydrate": "18g",
+      "cholesterol": "74mg",
+      "sodium": "146mg"
     },
-    "4c7ff1cd-496c-4df3-9e20-5758c366d853": {
-        "name": "Great Value Fat Free Evaporated Milk 12 oz",
-        "description": "Great Value Fat Free Evaporated Milk has a slightly sweet taste that is great for multiple uses in the kitchen. It?s perfect for baking, cooking, and making beverages. It is also wonderful for creamy soups, mashed potatoes, and macaroni and cheese. This evaporated milk provides a rich, flavorful addition to your recipes. It is also enriched with vitamin D and vitamin A and has the Great for You label, so you can trust you are getting the best ingredients. No artificial flavors or colors are added to this evaporated milk. Follow our delicious recipe idea located under the label. Enhance your recipes with Great Value Fat Free Evaporated Milk.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "5g",
-            "calories": 100,
-            "protein": "1g",
-            "carbohydrate": "6g",
-            "cholesterol": "33mg",
-            "sodium": "183mg"
-        },
-        "ingredients": [
-            "NONFAT MILK",
-            "DIPOTASSIUM PHOSPHATE",
-            "VITAMIN A PALMITATE",
-            "VITAMIN D3"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-        "image_url": "https://i5.walmartimages.com/asr/ec5bf952-7b4e-42f2-ac0b-590558188eed_1.87a2d572129bea726c0c06242540daf9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": false,
-            "lactose": true,
-            "eggs": false,
-            "milks": true,
-            "peanuts": false,
-            "shellfish": true,
-            "wheat": false,
-            "soy": false,
-            "fish": false,
-            "gluten": true
-        }
-    },
-    "be61b9ca-4305-4f43-9f32-cf9e3fff6e30": {
-        "name": "Great Value Sweetened Condensed Milk, 14 oz",
-        "description": "Great Value Sweetened Condensed Milk is a handy ingredient to have for making a wide variety of desserts. The sweet and rich milk is created by reducing milk down to remove water content while adding sugar. The result is a shelf-stable ingredient that can be used in multiple ways, making it an ideal pantry staple for the home cook. Use in tea or coffee for an extra flavorful beverage with minimal effort. Add to mixes for cookies and cakes, or use simply to top ice cream and pies. Drizzle over a bowl of fresh fruit for a lighter dessert. Include the sweetened condensed milk into curries for a spin on the classic coconut milk base. Add to pudding mix for more sweetness. Try making your own ice cream at home by using this condensed milk with fruit. The cooking possibilities are numerous with Great Value Sweetened Condensed Milk.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "8g",
-            "calories": 130,
-            "protein": "3g",
-            "carbohydrate": "14g",
-            "cholesterol": "44mg",
-            "sodium": "142mg"
-        },
-        "ingredients": [
-            "MILK",
-            "SUGAR"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-        "image_url": "https://i5.walmartimages.com/asr/9ecac397-1823-4dc6-a144-d0c6ec072dc3.948389751765852ac28d7528a12c31c4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": false,
-            "vegetarians": false,
-            "coeliacs": true,
-            "lactose": false,
-            "eggs": false,
-            "milks": true,
-            "peanuts": true,
-            "shellfish": true,
-            "wheat": true,
-            "soy": true,
-            "fish": true,
-            "gluten": false
-        }
-    },
-    "2991ccfa-ed99-4826-add0-2f32e5b5d91d": {
-        "name": "Great Value Fat Free Sweetened Condensed Milk, 14 Oz",
-        "description": "Be prepared for all of your baking adventures with Great Value Fat Free Sweetened Condensed Milk. Whip up your homemade recipe for fudge, caramel, or key lime pie using this versatile ingredient. This condensed milk provides a concentrated sweet and creamy flavor that is perfect for a wide variety of dessert recipes. It is crafted from fat-free milk, making it a healthier choice for your baked goods. Use this 14-ounce can to make homemade ice cream with your family in the summer. Make a delectable tres leches cake and keep any leftover condensed milk in the fridge for another recipe. Add the condensed milk to drinks such as coffee or hot chocolate. Store this in the pantry with your other basic baking ingredients to have on hand when you want to make a last-minute dessert without having to run to the store. Create delightful desserts with Great Value Fat Free Sweetened Condensed Milk.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "8g",
-            "calories": 80,
-            "protein": "6g",
-            "carbohydrate": "17g",
-            "cholesterol": "96mg",
-            "sodium": "126mg"
-        },
-        "ingredients": [
-            "NONFAT MILK",
-            "SUGAR",
-            "VITAMIN A PALMITATE"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-        "image_url": "https://i5.walmartimages.com/asr/7aa6a7df-7b5a-4b23-a286-50e0367ec061_2.af817745f88d5c53fb2a40721dc7f839.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": false,
-            "lactose": false,
-            "eggs": true,
-            "milks": true,
-            "peanuts": true,
-            "shellfish": true,
-            "wheat": false,
-            "soy": true,
-            "fish": false,
-            "gluten": true
-        }
-    },
-    "57e5b902-6c0e-44ff-80f7-3f499fc6c513": {
-        "name": "LA LECHERA Sweetened Condensed Milk 14 oz.",
-        "description": "Nothing brings a family together like a homemade treat, and nothing makes homemade treats tastier than La Lechera. La Lechera Sweetened Condensed Milk has the authentic flavor that has been a key part of recipes passed from generation to generation. It contains only milk and sugar, nothing complicated or unnecessary, so you can make wholesome dishes the right way. Whether you cook it into flans, fudges, or cheesecakes or add it as a creamy topping, La Lechera is the sweetened condensed milk you can trust. You can be sure your favorite desserts and drinks will be special when you prepare them with the authentic flavor of La Lechera.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "9g",
-            "calories": 40,
-            "protein": "7g",
-            "carbohydrate": "2g",
-            "cholesterol": "51mg",
-            "sodium": "5mg"
-        },
-        "ingredients": [
-            "MILK",
-            "SUGAR"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-        "image_url": "https://i5.walmartimages.com/asr/94ec1259-12f9-481a-ba13-d9efef6e9d9c.64228ef6a8401d67ffe3217ef20389ac.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": false,
-            "vegetarians": false,
-            "coeliacs": true,
-            "lactose": true,
-            "eggs": true,
-            "milks": true,
-            "peanuts": true,
-            "shellfish": true,
-            "wheat": false,
-            "soy": false,
-            "fish": false,
-            "gluten": true
-        }
-    },
-    "f0f5ec4e-f869-46ba-821a-06b1660173cc": {
-        "name": "Nestle La Lechera Sweetened Condensed Milk 11.8 oz.",
-        "description": "Nestle La Lechera Sweetened Condensed Milk adds creamy sweetness to your favorite drinks and dessert. La Lechera is only made with milk and cane sugar and no artificial flavors. La Lechera sweetened condensed milk comes in a resealable bottle, perfect to add a squeeze to any treat or snack. Drizzle La Lechera sweetened condensed milk over fresh fruit, pancakes, cake, flan or even add it to your morning coffee for a flavorful, creamy delight, sweet treat. Refrigerate La Lechera sweetened condensed milk after opening.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "3g",
-            "calories": 40,
-            "protein": "1g",
-            "carbohydrate": "3g",
-            "cholesterol": "6mg",
-            "sodium": "86mg"
-        },
-        "ingredients": [
-            "MILK",
-            "SUGAR"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "96b67558-5870-4855-860a-2494eec615f7"
-        ],
-        "uuid": "f0f5ec4e-f869-46ba-821a-06b1660173cc",
-        "image_url": "https://i5.walmartimages.com/asr/e905c98b-2e55-47ee-9994-3e9d4cdeac05.6ccc1252855317d3da79f658fdf13ec8.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": false,
-            "vegetarians": false,
-            "coeliacs": false,
-            "lactose": false,
-            "eggs": true,
-            "milks": true,
-            "peanuts": false,
-            "shellfish": true,
-            "wheat": true,
-            "soy": true,
-            "fish": false,
-            "gluten": true
-        }
-    },
-    "96b67558-5870-4855-860a-2494eec615f7": {
-        "name": "Eagle Brand Sweetened Condensed Milk, 14 Oz",
-        "description": "Eagle Brand brings over 160 years of experience with the flavor and quality trusted by bakers. Its the secret ingredient to creating new traditions to share. Eagle Brand Sweetened Condensed Milk uses just milk and sugar for the perfect sweet, creamy texture. We use 100% US Milk, no rBST, and no artificial flavors. Add rich flavor to your fudge, Magic Bars, Cheesecake, and so many more delicious desserts.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "4g",
-            "calories": 10,
-            "protein": "7g",
-            "carbohydrate": "9g",
-            "cholesterol": "74mg",
-            "sodium": "90mg"
-        },
-        "ingredients": [
-            "MILK",
-            "SUGAR"
-        ],
-        "substitutes": [
-            "b307ae13-b65d-4d4a-93f4-d547764779b4",
-            "4c7ff1cd-496c-4df3-9e20-5758c366d853",
-            "be61b9ca-4305-4f43-9f32-cf9e3fff6e30",
-            "2991ccfa-ed99-4826-add0-2f32e5b5d91d",
-            "57e5b902-6c0e-44ff-80f7-3f499fc6c513",
-            "f0f5ec4e-f869-46ba-821a-06b1660173cc"
-        ],
-        "uuid": "96b67558-5870-4855-860a-2494eec615f7",
-        "image_url": "https://i5.walmartimages.com/asr/f159a702-84ad-4e97-9113-b29d0fc7d8ab_1.7621c20c04cc09f3c04bccb5ffbd1280.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": true,
-            "lactose": true,
-            "eggs": true,
-            "milks": false,
-            "peanuts": false,
-            "shellfish": true,
-            "wheat": true,
-            "soy": true,
-            "fish": true,
-            "gluten": false
-        }
-    },
-    "91b6078e-9292-4221-9ad3-fce599b5a3f9": {
-        "name": "Simply Orange Pulp Free Orange Juice, 52 fl oz",
-        "description": "Simply Orange Pulp Free is a delicious orange juice with a taste that's the next best thing to fresh-squeezed. Try this premium, not-from-concentrate orange juice which is an excellent source of Vitamin C. Simply adheres to strict standards to ensure that the Simply Orange juices are the absolute best and guarantee fresh taste. With the Simply Orange Pulp Free juice, you can see the juicy goodness inside because Simply only uses transparent packaging which is 100% recyclable. The product is vegan, gluten-free and certified Kosher by OU. The best things in life are made Simply",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "0g",
-            "calories": 110,
-            "protein": "2g",
-            "carbohydrate": "26g",
-            "cholesterol": "0mg",
-            "sodium": "0mg"
-        },
-        "ingredients": [
-            "ORANGE JUICE"
-        ],
-        "substitutes": [
-            "48702374-a764-4287-ab68-0f3a0d73c9aa",
-            "1c2428f4-22e7-46b6-8a26-6d020cd857b3"
-        ],
-        "uuid": "91b6078e-9292-4221-9ad3-fce599b5a3f9",
-        "image_url": "https://i5.walmartimages.com/asr/1a26c059-839d-42f0-9e04-18e82440b021.9b6300ef6b93f44bfd3342714909fb7f.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": false,
-            "lactose": true,
-            "eggs": false,
-            "milks": true,
-            "peanuts": false,
-            "shellfish": false,
-            "wheat": false,
-            "soy": true,
-            "fish": true,
-            "gluten": false
-        }
-    },
-    "48702374-a764-4287-ab68-0f3a0d73c9aa": {
-        "name": "Tropicana Pure Premium 100% Orange Juice Original No Pulp 128 Fl Oz Jug",
-        "description": "The perfect combination of taste and nutrition! Tropicana Pure Premium® Original is 100% pure orange juice, squeezed from fresh-picked oranges and never from concentrate. No wonder it's the #1 orange juice brand.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "0g",
-            "calories": 110,
-            "protein": "2g",
-            "carbohydrate": "26g",
-            "cholesterol": "0mg",
-            "sodium": "0mg"
-        },
-        "ingredients": [
-            "ORANGE JUICE"
-        ],
-        "substitutes": [
-            "91b6078e-9292-4221-9ad3-fce599b5a3f9",
-            "1c2428f4-22e7-46b6-8a26-6d020cd857b3"
-        ],
-        "uuid": "48702374-a764-4287-ab68-0f3a0d73c9aa",
-        "image_url": "https://i5.walmartimages.com/asr/b586b22d-4bb1-4c8c-8127-8402b397fc2c.593ef49802e7fd6b842519ffa1dfa341.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": false,
-            "lactose": false,
-            "eggs": true,
-            "milks": false,
-            "peanuts": false,
-            "shellfish": false,
-            "wheat": false,
-            "soy": true,
-            "fish": false,
-            "gluten": true
-        }
-    },
-    "1c2428f4-22e7-46b6-8a26-6d020cd857b3": {
-        "name": "Great Value Orange 100% Juice, 64 fl oz",
-        "description": "Start your day off right with a glass of Great Value 100% Orange Juice. Enjoy the refreshing taste of freshly-picked oranges while refueling your body with a daily dose of vitamin C. With only 110 calories per serving, this 100% juice is an excellent beverage of choice for the health-conscious consumer. This juice combines superior taste and quality ingredients in a convenient 2-quart jug so you can enjoy an incredible value at a great price. Treat yourself to the delicious taste of Great Value 100% Orange Juice.",
-        "nutrition_facts": {
-            "serving_size": "240ml",
-            "fat": "0g",
-            "calories": 110,
-            "protein": "2g",
-            "carbohydrate": "27g",
-            "cholesterol": "0mg",
-            "sodium": "30mg"
-        },
-        "ingredients": [
-            "Filtered Water",
-            "Orange Juice Concentrate",
-            "Ascorbic Acid (Vitamin C)"
-        ],
-        "substitutes": [
-            "91b6078e-9292-4221-9ad3-fce599b5a3f9",
-            "48702374-a764-4287-ab68-0f3a0d73c9aa"
-        ],
-        "uuid": "1c2428f4-22e7-46b6-8a26-6d020cd857b3",
-        "image_url": "https://i5.walmartimages.com/asr/b586b22d-4bb1-4c8c-8127-8402b397fc2c.593ef49802e7fd6b842519ffa1dfa341.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-        "indications": {
-            "vegans": true,
-            "vegetarians": true,
-            "coeliacs": true,
-            "lactose": false,
-            "eggs": true,
-            "milks": true,
-            "peanuts": true,
-            "shellfish": false,
-            "wheat": true,
-            "soy": false,
-            "fish": true,
-            "gluten": false
-        }
+    "ingredients": [
+      "Milk",
+      "Sugar"
+    ],
+    "substitutes": [
+      81749692,
+      18232802,
+      78495845,
+      84358272,
+      45980973,
+      44962373
+    ],
+    "id": 12960407,
+    "image_url": "https://i5.walmartimages.com/asr/d2bc1132-8667-4097-87e6-b097b995f8fa.eb718edd1809c814c283bb8681df239d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": true,
+      "milks": true,
+      "peanuts": true,
+      "shellfish": false,
+      "wheat": false,
+      "soy": true,
+      "fish": false,
+      "gluten": true
     }
+  },
+  "18232802": {
+    "name": "Great Value Sweetened Condensed Milk, 14 oz",
+    "description": "Great Value Sweetened Condensed Milk is a handy ingredient to have for making a wide variety of desserts. The sweet and rich milk is created by reducing milk down to remove water content while adding sugar. The result is a shelf-stable ingredient that can be used in multiple ways, making it an ideal pantry staple for the home cook. Use in tea or coffee for an extra flavorful beverage with minimal effort. Add to mixes for cookies and cakes, or use simply to top ice cream and pies. Drizzle over a bowl of fresh fruit for a lighter dessert. Include the sweetened condensed milk into curries for a spin on the classic coconut milk base. Add to pudding mix for more sweetness. Try making your own ice cream at home by using this condensed milk with fruit. The cooking possibilities are numerous with Great Value Sweetened Condensed Milk.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "3g",
+      "calories": 110,
+      "protein": "2g",
+      "carbohydrate": "15g",
+      "cholesterol": "32mg",
+      "sodium": "124mg"
+    },
+    "ingredients": [
+      "MILK",
+      "SUGAR"
+    ],
+    "substitutes": [
+      12960407,
+      81749692,
+      78495845,
+      84358272,
+      45980973,
+      44962373
+    ],
+    "id": 18232802,
+    "image_url": "https://i5.walmartimages.com/asr/9ecac397-1823-4dc6-a144-d0c6ec072dc3.948389751765852ac28d7528a12c31c4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": false,
+      "milks": true,
+      "peanuts": false,
+      "shellfish": false,
+      "wheat": false,
+      "soy": true,
+      "fish": true,
+      "gluten": false
+    }
+  },
+  "38253859": {
+    "name": "Great Value Orange 100% Juice, 64 fl oz",
+    "description": "Start your day off right with a glass of Great Value 100% Orange Juice. Enjoy the refreshing taste of freshly-picked oranges while refueling your body with a daily dose of vitamin C. With only 110 calories per serving, this 100% juice is an excellent beverage of choice for the health-conscious consumer. This juice combines superior taste and quality ingredients in a convenient 2-quart jug so you can enjoy an incredible value at a great price. Treat yourself to the delicious taste of Great Value 100% Orange Juice.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "0g",
+      "calories": 110,
+      "protein": "2g",
+      "carbohydrate": "27g",
+      "cholesterol": "0mg",
+      "sodium": "30mg"
+    },
+    "ingredients": [
+      "Filtered Water",
+      "Orange Juice Concentrate",
+      "Ascorbic Acid (Vitamin C)"
+    ],
+    "substitutes": [
+      41512159,
+      76883485
+    ],
+    "id": 38253859,
+    "image_url": "https://i5.walmartimages.com/asr/b586b22d-4bb1-4c8c-8127-8402b397fc2c.593ef49802e7fd6b842519ffa1dfa341.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": true,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": false,
+      "milks": false,
+      "peanuts": true,
+      "shellfish": true,
+      "wheat": false,
+      "soy": true,
+      "fish": false,
+      "gluten": false
+    }
+  },
+  "41512159": {
+    "name": "Simply Orange Pulp Free Orange Juice, 52 fl oz",
+    "description": "Simply Orange Pulp Free is a delicious orange juice with a taste that's the next best thing to fresh-squeezed. Try this premium, not-from-concentrate orange juice which is an excellent source of Vitamin C. Simply adheres to strict standards to ensure that the Simply Orange juices are the absolute best and guarantee fresh taste. With the Simply Orange Pulp Free juice, you can see the juicy goodness inside because Simply only uses transparent packaging which is 100% recyclable. The product is vegan, gluten-free and certified Kosher by OU. The best things in life are made Simply",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "0g",
+      "calories": 110,
+      "protein": "2g",
+      "carbohydrate": "26g",
+      "cholesterol": "0mg",
+      "sodium": "0mg"
+    },
+    "ingredients": [
+      "ORANGE JUICE"
+    ],
+    "substitutes": [
+      76883485,
+      38253859
+    ],
+    "id": 41512159,
+    "image_url": "https://i5.walmartimages.com/asr/1a26c059-839d-42f0-9e04-18e82440b021.9b6300ef6b93f44bfd3342714909fb7f.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": false,
+      "milks": true,
+      "peanuts": false,
+      "shellfish": true,
+      "wheat": true,
+      "soy": true,
+      "fish": true,
+      "gluten": true
+    }
+  },
+  "44962373": {
+    "name": "Eagle Brand Sweetened Condensed Milk, 14 Oz",
+    "description": "Eagle Brand brings over 160 years of experience with the flavor and quality trusted by bakers. Its the secret ingredient to creating new traditions to share. Eagle Brand Sweetened Condensed Milk uses just milk and sugar for the perfect sweet, creamy texture. We use 100% US Milk, no rBST, and no artificial flavors. Add rich flavor to your fudge, Magic Bars, Cheesecake, and so many more delicious desserts.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "8g",
+      "calories": 10,
+      "protein": "3g",
+      "carbohydrate": "2g",
+      "cholesterol": "1mg",
+      "sodium": "8mg"
+    },
+    "ingredients": [
+      "MILK",
+      "SUGAR"
+    ],
+    "substitutes": [
+      12960407,
+      81749692,
+      18232802,
+      78495845,
+      84358272,
+      45980973
+    ],
+    "id": 44962373,
+    "image_url": "https://i5.walmartimages.com/asr/f159a702-84ad-4e97-9113-b29d0fc7d8ab_1.7621c20c04cc09f3c04bccb5ffbd1280.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": true,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": true,
+      "milks": true,
+      "peanuts": true,
+      "shellfish": false,
+      "wheat": true,
+      "soy": true,
+      "fish": false,
+      "gluten": true
+    }
+  },
+  "45980973": {
+    "name": "Nestle La Lechera Sweetened Condensed Milk 11.8 oz.",
+    "description": "Nestle La Lechera Sweetened Condensed Milk adds creamy sweetness to your favorite drinks and dessert. La Lechera is only made with milk and cane sugar and no artificial flavors. La Lechera sweetened condensed milk comes in a resealable bottle, perfect to add a squeeze to any treat or snack. Drizzle La Lechera sweetened condensed milk over fresh fruit, pancakes, cake, flan or even add it to your morning coffee for a flavorful, creamy delight, sweet treat. Refrigerate La Lechera sweetened condensed milk after opening.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "7g",
+      "calories": 70,
+      "protein": "10g",
+      "carbohydrate": "15g",
+      "cholesterol": "9mg",
+      "sodium": "127mg"
+    },
+    "ingredients": [
+      "MILK",
+      "SUGAR"
+    ],
+    "substitutes": [
+      12960407,
+      81749692,
+      18232802,
+      78495845,
+      84358272,
+      44962373
+    ],
+    "id": 45980973,
+    "image_url": "https://i5.walmartimages.com/asr/e905c98b-2e55-47ee-9994-3e9d4cdeac05.6ccc1252855317d3da79f658fdf13ec8.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": true,
+      "vegetarians": true,
+      "coeliacs": false,
+      "lactose": false,
+      "eggs": true,
+      "milks": true,
+      "peanuts": false,
+      "shellfish": true,
+      "wheat": true,
+      "soy": false,
+      "fish": true,
+      "gluten": true
+    }
+  },
+  "76883485": {
+    "name": "Tropicana Pure Premium 100% Orange Juice Original No Pulp 128 Fl Oz Jug",
+    "description": "The perfect combination of taste and nutrition! Tropicana Pure Premium® Original is 100% pure orange juice, squeezed from fresh-picked oranges and never from concentrate. No wonder it's the #1 orange juice brand.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "0g",
+      "calories": 110,
+      "protein": "2g",
+      "carbohydrate": "26g",
+      "cholesterol": "0mg",
+      "sodium": "0mg"
+    },
+    "ingredients": [
+      "ORANGE JUICE"
+    ],
+    "substitutes": [
+      41512159,
+      38253859
+    ],
+    "id": 76883485,
+    "image_url": "https://i5.walmartimages.com/asr/b586b22d-4bb1-4c8c-8127-8402b397fc2c.593ef49802e7fd6b842519ffa1dfa341.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": true,
+      "vegetarians": true,
+      "coeliacs": false,
+      "lactose": false,
+      "eggs": true,
+      "milks": true,
+      "peanuts": true,
+      "shellfish": true,
+      "wheat": false,
+      "soy": true,
+      "fish": true,
+      "gluten": true
+    }
+  },
+  "78495845": {
+    "name": "Great Value Fat Free Sweetened Condensed Milk, 14 Oz",
+    "description": "Be prepared for all of your baking adventures with Great Value Fat Free Sweetened Condensed Milk. Whip up your homemade recipe for fudge, caramel, or key lime pie using this versatile ingredient. This condensed milk provides a concentrated sweet and creamy flavor that is perfect for a wide variety of dessert recipes. It is crafted from fat-free milk, making it a healthier choice for your baked goods. Use this 14-ounce can to make homemade ice cream with your family in the summer. Make a delectable tres leches cake and keep any leftover condensed milk in the fridge for another recipe. Add the condensed milk to drinks such as coffee or hot chocolate. Store this in the pantry with your other basic baking ingredients to have on hand when you want to make a last-minute dessert without having to run to the store. Create delightful desserts with Great Value Fat Free Sweetened Condensed Milk.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "4g",
+      "calories": 90,
+      "protein": "6g",
+      "carbohydrate": "18g",
+      "cholesterol": "20mg",
+      "sodium": "113mg"
+    },
+    "ingredients": [
+      "NONFAT MILK",
+      "SUGAR",
+      "VITAMIN A PALMITATE"
+    ],
+    "substitutes": [
+      12960407,
+      81749692,
+      18232802,
+      84358272,
+      45980973,
+      44962373
+    ],
+    "id": 78495845,
+    "image_url": "https://i5.walmartimages.com/asr/7aa6a7df-7b5a-4b23-a286-50e0367ec061_2.af817745f88d5c53fb2a40721dc7f839.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": true,
+      "lactose": true,
+      "eggs": true,
+      "milks": false,
+      "peanuts": true,
+      "shellfish": true,
+      "wheat": false,
+      "soy": false,
+      "fish": false,
+      "gluten": true
+    }
+  },
+  "81749692": {
+    "name": "Great Value Fat Free Evaporated Milk 12 oz",
+    "description": "Great Value Fat Free Evaporated Milk has a slightly sweet taste that is great for multiple uses in the kitchen. It?s perfect for baking, cooking, and making beverages. It is also wonderful for creamy soups, mashed potatoes, and macaroni and cheese. This evaporated milk provides a rich, flavorful addition to your recipes. It is also enriched with vitamin D and vitamin A and has the Great for You label, so you can trust you are getting the best ingredients. No artificial flavors or colors are added to this evaporated milk. Follow our delicious recipe idea located under the label. Enhance your recipes with Great Value Fat Free Evaporated Milk.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "9g",
+      "calories": 100,
+      "protein": "3g",
+      "carbohydrate": "14g",
+      "cholesterol": "45mg",
+      "sodium": "144mg"
+    },
+    "ingredients": [
+      "NONFAT MILK",
+      "DIPOTASSIUM PHOSPHATE",
+      "VITAMIN A PALMITATE",
+      "VITAMIN D3"
+    ],
+    "substitutes": [
+      12960407,
+      18232802,
+      78495845,
+      84358272,
+      45980973,
+      44962373
+    ],
+    "id": 81749692,
+    "image_url": "https://i5.walmartimages.com/asr/ec5bf952-7b4e-42f2-ac0b-590558188eed_1.87a2d572129bea726c0c06242540daf9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": false,
+      "lactose": false,
+      "eggs": false,
+      "milks": false,
+      "peanuts": false,
+      "shellfish": true,
+      "wheat": true,
+      "soy": false,
+      "fish": false,
+      "gluten": true
+    }
+  },
+  "84358272": {
+    "name": "LA LECHERA Sweetened Condensed Milk 14 oz.",
+    "description": "Nothing brings a family together like a homemade treat, and nothing makes homemade treats tastier than La Lechera. La Lechera Sweetened Condensed Milk has the authentic flavor that has been a key part of recipes passed from generation to generation. It contains only milk and sugar, nothing complicated or unnecessary, so you can make wholesome dishes the right way. Whether you cook it into flans, fudges, or cheesecakes or add it as a creamy topping, La Lechera is the sweetened condensed milk you can trust. You can be sure your favorite desserts and drinks will be special when you prepare them with the authentic flavor of La Lechera.",
+    "nutrition_facts": {
+      "serving_size": "240ml",
+      "fat": "5g",
+      "calories": 140,
+      "protein": "6g",
+      "carbohydrate": "13g",
+      "cholesterol": "83mg",
+      "sodium": "67mg"
+    },
+    "ingredients": [
+      "MILK",
+      "SUGAR"
+    ],
+    "substitutes": [
+      12960407,
+      81749692,
+      18232802,
+      78495845,
+      45980973,
+      44962373
+    ],
+    "id": 84358272,
+    "image_url": "https://i5.walmartimages.com/asr/94ec1259-12f9-481a-ba13-d9efef6e9d9c.64228ef6a8401d67ffe3217ef20389ac.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    "indications": {
+      "vegans": false,
+      "vegetarians": false,
+      "coeliacs": false,
+      "lactose": true,
+      "eggs": true,
+      "milks": true,
+      "peanuts": false,
+      "shellfish": false,
+      "wheat": true,
+      "soy": true,
+      "fish": false,
+      "gluten": false
+    }
+  }
 }
