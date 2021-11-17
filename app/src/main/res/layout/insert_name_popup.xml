@@ -22,6 +22,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/cancel_btn"
                 android:src="@drawable/ic_cancel"
                 android:contentDescription="@string/icon_back_desc"
                 android:backgroundTint="@color/light_gray"
@@ -56,6 +57,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/new_name_edit"
                 android:textSize="18dp"
                 android:textColor="@color/black"
                 android:paddingLeft="35dp"/>
@@ -65,6 +67,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/submit_btn"
                 android:text="@string/submit_cue"
                 android:textColor="@color/off_white"
                 android:textAllCaps="false"

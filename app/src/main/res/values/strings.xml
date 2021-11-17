@@ -22,4 +22,5 @@
     <string name="icon_help_desc">Display help menu</string>
     <string name="name_prompt">Name:</string>
     <string name="submit_cue">SUBMIT</string>
+    <string name="add_restriction_cue">Add Restriction</string>
 </resources>

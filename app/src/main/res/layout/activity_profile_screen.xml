@@ -19,6 +19,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/back_btn"
                 android:src="@drawable/ic_back"
                 android:contentDescription="@string/icon_back_desc"
                 android:backgroundTint="@color/white"
@@ -33,6 +34,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/help_btn"
                 android:src="@drawable/ic_help"
                 android:contentDescription="@string/icon_help_desc"
                 android:backgroundTint="@color/white"
@@ -43,6 +45,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/profiles_btn"
                 android:src="@drawable/ic_group"
                 android:contentDescription="@string/icong_group_desc"
                 android:backgroundTint="@color/white"
@@ -70,6 +73,7 @@
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:id="@+id/user_picture"
                     android:src="@drawable/ic_person"
                     android:scaleType="centerCrop"/>
 
@@ -80,6 +84,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/username_edit"
                 android:textSize="18dp"
                 android:paddingTop="18dp"
                 android:textColor="@color/black"
@@ -88,6 +93,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/restrictions_linear_layout"
             android:orientation="vertical"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
@@ -120,6 +126,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/modify_btn"
                 android:text="@string/edit_restrictions_cue"
                 android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/ic_edit"
@@ -130,6 +137,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/add_person_btn"
                 android:text="@string/add_person_cue"
                 android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/ic_add_person"
