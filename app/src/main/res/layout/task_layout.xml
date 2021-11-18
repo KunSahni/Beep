@@ -10,13 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp">
+
         <RadioButton
             android:id="@+id/checkPeople"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:button="@color/teal"
-            android:onClick="onRadioButtonClicked"/>
+            android:buttonTint="@color/teal"
+            android:onClick="onRadioButtonClicked"
+            android:paddingStart="8dp" />
     </RelativeLayout>
 
 

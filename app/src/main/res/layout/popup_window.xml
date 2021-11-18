@@ -18,13 +18,46 @@
         android:textColor="@color/black"
         android:ems="10"
         android:text="@string/shopping_question"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tasksRecyclerView"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextTextPersonName"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:nestedScrollingEnabled="true"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/myself"
+            android:onClick="checkButton"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/allie"
+            android:onClick="checkButton"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jim"
+            android:onClick="checkButton"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alex"
+            android:onClick="checkButton"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sarah"
+            android:onClick="checkButton"/>
+
+    </RadioGroup>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/tasksRecyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/editTextTextPersonName"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        android:nestedScrollingEnabled="true"/>-->
 
 
 </RelativeLayout>
