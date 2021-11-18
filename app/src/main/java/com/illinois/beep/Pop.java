@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import androidx.lifecycle.ViewModelProvider;
 
 public class Pop extends Activity {
-    CheckBox cb1, cb2, cb3, cb4, cb5;
+    //CheckBox cb1, cb2, cb3, cb4, cb5;
     Button saveBtn;
 
     @Override
@@ -81,5 +81,9 @@ public class Pop extends Activity {
         CheckBox cb = findViewById(view.getId());
         if (checked)
             Toast.makeText(this, "Selected " + cb.getText(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void saveChecklist(View view) {
+        Toast.makeText(this, "Saved selections" , Toast.LENGTH_SHORT).show();
     }
 }
