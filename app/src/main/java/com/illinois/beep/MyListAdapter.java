@@ -1,6 +1,8 @@
 package com.illinois.beep;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +14,27 @@ import com.illinois.beep.database.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Set;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MyListAdapter extends BaseAdapter {
+
+    enum RestrictionLevel {
+      GOOD,
+      WARN,
+      BAD,
+    };
+
     Context context;
+    FragmentActivity activity;
     List<MyListItem> myList;
 
-    public MyListAdapter(Context context, List<MyListItem> myList) {
+    public MyListAdapter(Context context, FragmentActivity activity, List<MyListItem> myList) {
         this.context = context;
+        this.activity = activity;
         this.myList = myList;
     }
 
@@ -37,9 +53,11 @@ public class MyListAdapter extends BaseAdapter {
         return position;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
+        RestrictionViewModel restrictionViewModel = new ViewModelProvider(activity).get(RestrictionViewModel.class);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.my_list_item, parent, false);
@@ -54,8 +72,25 @@ public class MyListAdapter extends BaseAdapter {
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
 
-        // TODO: replace the icon with restriction hint icon
-        Picasso.get().load("https://cloudfour.com/examples/img-currentsrc/images/kitten-large.png").into(viewHolder.restrictionIcon);
+        Set<String> restrictions = restrictionViewModel.getRestrictions().getValue();
+        RestrictionLevel restrictionLevel = RestrictionLevel.GOOD;
+        assert restrictions != null;
+        for (String restriction: restrictions) {
+            if (product.getIndications().getOrDefault(restriction, false)) {
+                restrictionLevel = RestrictionLevel.WARN;
+            }
+        }
+
+        switch (restrictionLevel) {
+            case WARN:
+                viewHolder.restrictionIcon.setImageResource(R.drawable.ic_warning);
+                break;
+            case BAD:
+                viewHolder.restrictionIcon.setImageResource(R.drawable.ic_minus_icon);
+                break;
+            default:
+                viewHolder.restrictionIcon.setImageResource(R.drawable.ic_icon_good);
+        }
 
         viewHolder.productName.setText(product.getName());
         viewHolder.productQuantity.setText(item.getQuantity().toString());

@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
     <TextView
-        android:id="@+id/textview_test_add_item"
+        android:id="@+id/textview_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:layout_marginStart="4dp"
         android:gravity="left"
-        android:text="Test Add Item"
+        android:text="Test"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,12 +34,19 @@
         android:id="@+id/my_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first"/>
+        app:layout_constraintTop_toBottomOf="@id/textview_first"
+        android:scrollbarStyle="outsideOverlay"
+        android:background="#F2F4F4"/>
 
     <ImageButton
         android:id="@+id/people_button"
