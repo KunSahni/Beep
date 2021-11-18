@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:text="@string/shopping_question"/>
+    <CheckBox android:id="@+id/check_myself"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/myself"
+        android:buttonTint="@color/teal"
+        android:onClick="onCheckboxClicked"
+        android:checked="true"/>
+    <CheckBox android:id="@+id/check_allie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/allie"
+        android:buttonTint="@color/teal"
+        android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/check_jim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/jim"
+        android:buttonTint="@color/teal"
+        android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/check_alex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/alex"
+        android:buttonTint="@color/teal"
+        android:onClick="onCheckboxClicked"/>
+    <CheckBox android:id="@+id/check_sarah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:text="@string/sarah"
+        android:buttonTint="@color/teal"
+        android:onClick="onCheckboxClicked"/>
+
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textColor="@color/off_white"
+        android:backgroundTint="@color/teal"
+        android:layout_marginTop="300dp"
+        android:layout_gravity="center"
+        android:onClick="saveChecklist"/>
+</LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="20dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center|bottom">-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="100dp"-->
+<!--            android:text="CANCEL"-->
+<!--            android:textColor="@color/off_white"-->
+<!--            android:backgroundTint="@color/dark_mid_gray"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="SAVE"-->
+<!--            android:textColor="@color/off_white"-->
+<!--            android:backgroundTint="@color/teal" />-->
+
+
+
+<!--</LinearLayout>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:backgroundTint="#E89898">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/editTextTextPersonName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:layout_marginEnd="50dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="20dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:ems="10"-->
+<!--        android:text="@string/shopping_question"/>-->
+<!--    <RadioGroup-->
+<!--        android:id="@+id/radioGroup"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/editTextTextPersonName"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:orientation="vertical">-->
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/myself"-->
+<!--            android:onClick="checkRadioButton" />-->
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/allie"-->
+<!--            android:onClick="checkRadioButton"/>-->
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/jim"-->
+<!--            android:onClick="checkRadioButton"/>-->
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/alex"-->
+<!--            android:onClick="checkRadioButton"/>-->
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/sarah"-->
+<!--            android:onClick="checkRadioButton"/>-->
+
+<!--    </RadioGroup>-->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/tasksRecyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/editTextTextPersonName"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        android:nestedScrollingEnabled="true"/>-->
+
+
+<!--</RelativeLayout>-->

@@ -39,7 +39,6 @@ public class FirstFragment extends Fragment {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-
         l = view.findViewById(R.id.my_list_view);
         MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), new ArrayList<>());
         l.setAdapter(adapter);
@@ -70,7 +69,14 @@ public class FirstFragment extends Fragment {
 
         ImageButton peopleBtn = binding.peopleButton;
         ImageButton cameraBtn = binding.cameraButton;
-        ImageButton editBtn = binding.cameraButton;
+        ImageButton editBtn = binding.editButton;
+
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FirstFragment.this.getActivity(),Pop.class));
+            }
+        });
 
         IntentIntegrator integrator = IntentIntegrator.forSupportFragment(FirstFragment.this);
         integrator.setOrientationLocked(false); // don't force landscape

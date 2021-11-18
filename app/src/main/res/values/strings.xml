@@ -21,4 +21,11 @@
     <string name="icon_back_desc">Back</string>
     <string name="icon_help_desc">Display help menu</string>
     <string name="qty">"Qty: "</string>
+    <string name="shopping_question">"Who are you shopping for?"</string>
+
+    <string name="myself">"Myself</string>
+    <string name="allie">"Allie</string>
+    <string name="jim">"Jim</string>
+    <string name="alex">"Alex</string>
+    <string name="sarah">"Sarah</string>
 </resources>
