@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Button;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.illinois.beep.databinding.FragmentFirstBinding;
@@ -30,7 +30,7 @@ public class Pop extends Activity {
 
         setContentView(R.layout.popup_window);
 
-        radioGroup = findViewById(R.id.radioGroup);
+        //radioGroup = findViewById(R.id.radioGroup);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -44,5 +44,43 @@ public class Pop extends Activity {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
         Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.check_myself:
+                if (checked)
+                    Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
+            else
+                // Remove the meat
+                break;
+            case R.id.check_allie:
+                if (checked)
+                    Toast.makeText(this, "Selected Allie", Toast.LENGTH_SHORT).show();
+            else
+                // I'm lactose intolerant
+                break;
+            case R.id.check_jim:
+                if (checked)
+                    Toast.makeText(this, "Selected Jim", Toast.LENGTH_SHORT).show();
+                else
+                    // I'm lactose intolerant
+                    break;
+            case R.id.check_alex:
+                if (checked)
+                    Toast.makeText(this, "Selected Alex", Toast.LENGTH_SHORT).show();
+                else
+                    // I'm lactose intolerant
+                    break;
+            case R.id.check_sarah:
+                if (checked)
+                    Toast.makeText(this, "Selected Sarah", Toast.LENGTH_SHORT).show();
+                else
+                    // I'm lactose intolerant
+                    break;
+        }
     }
 }
