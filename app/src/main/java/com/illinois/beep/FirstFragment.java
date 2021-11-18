@@ -39,8 +39,6 @@ public class FirstFragment extends Fragment {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-
-
         l = view.findViewById(R.id.my_list_view);
         MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), new ArrayList<>());
         l.setAdapter(adapter);
