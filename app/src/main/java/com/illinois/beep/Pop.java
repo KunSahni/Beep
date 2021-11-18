@@ -54,33 +54,23 @@ public class Pop extends Activity {
             case R.id.check_myself:
                 if (checked)
                     Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
-            else
-                // Remove the meat
                 break;
             case R.id.check_allie:
                 if (checked)
                     Toast.makeText(this, "Selected Allie", Toast.LENGTH_SHORT).show();
-            else
-                // I'm lactose intolerant
                 break;
             case R.id.check_jim:
                 if (checked)
                     Toast.makeText(this, "Selected Jim", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
+                break;
             case R.id.check_alex:
                 if (checked)
                     Toast.makeText(this, "Selected Alex", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
+                break;
             case R.id.check_sarah:
                 if (checked)
                     Toast.makeText(this, "Selected Sarah", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
+                break;
         }
     }
 }
