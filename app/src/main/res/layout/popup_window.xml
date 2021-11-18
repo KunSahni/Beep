@@ -54,7 +54,45 @@
         android:buttonTint="@color/teal"
         android:onClick="onCheckboxClicked"/>
 
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textColor="@color/off_white"
+        android:backgroundTint="@color/teal"
+        android:layout_marginTop="300dp"
+        android:layout_gravity="center"
+        android:onClick="saveChecklist"/>
 </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="20dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center|bottom">-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="100dp"-->
+<!--            android:text="CANCEL"-->
+<!--            android:textColor="@color/off_white"-->
+<!--            android:backgroundTint="@color/dark_mid_gray"/>-->
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="SAVE"-->
+<!--            android:textColor="@color/off_white"-->
+<!--            android:backgroundTint="@color/teal" />-->
+
+
+
+<!--</LinearLayout>-->
 <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="match_parent"-->

@@ -7,6 +7,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Button;
@@ -21,56 +22,64 @@ import java.util.ArrayList;
 import androidx.lifecycle.ViewModelProvider;
 
 public class Pop extends Activity {
-    RadioGroup radioGroup;
-    RadioButton radioButton;
+    CheckBox cb1, cb2, cb3, cb4, cb5;
+    Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.popup_window);
-
-        //radioGroup = findViewById(R.id.radioGroup);
-
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width * 0.9), (int)(height*0.8));
+
+//        cb1 = findViewById(R.id.check_myself);
+//        cb2 = findViewById(R.id.check_allie);
+//        cb3 = findViewById(R.id.check_jim);
+//        cb4 = findViewById(R.id.check_alex);
+//        cb5 = findViewById(R.id.check_sarah);
+//        saveBtn = findViewById(R.id.save_button);
+//        saveBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                StringBuffer result = new StringBuffer();
+//                result.append("Selected: ");
+//                if(cb1.isChecked())
+//                    result.append("\n" + cb1.getText().toString());
+//
+//                if(cb2.isChecked())
+//                    result.append("\n" + cb1.getText().toString());
+//
+//                if(cb3.isChecked())
+//                    result.append("\n" + cb1.getText().toString());
+//
+//                if(cb4.isChecked())
+//                    result.append("\n" + cb1.getText().toString());
+//
+//                if(cb5.isChecked())
+//                    result.append("\n" + cb1.getText().toString());
+//
+//                if (!cb1.isChecked() && !cb2.isChecked() && !cb3.isChecked()
+//                        && !cb4.isChecked() && !cb5.isChecked())
+//                    result.append("\nNone");
+//            }
+//        });
     }
 
-    public void checkRadioButton(View v) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radioId);
-        Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
-    }
+//    public void checkRadioButton(View v) {
+//        int radioId = radioGroup.getCheckedRadioButtonId();
+//        radioButton = findViewById(radioId);
+//        Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
+//    }
 
     public void onCheckboxClicked(View view) {
-        // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.check_myself:
-                if (checked)
-                    Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_allie:
-                if (checked)
-                    Toast.makeText(this, "Selected Allie", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_jim:
-                if (checked)
-                    Toast.makeText(this, "Selected Jim", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_alex:
-                if (checked)
-                    Toast.makeText(this, "Selected Alex", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_sarah:
-                if (checked)
-                    Toast.makeText(this, "Selected Sarah", Toast.LENGTH_SHORT).show();
-                break;
-        }
+        CheckBox cb = findViewById(view.getId());
+        if (checked)
+            Toast.makeText(this, "Selected " + cb.getText(), Toast.LENGTH_SHORT).show();
     }
 }
