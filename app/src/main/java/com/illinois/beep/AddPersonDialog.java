@@ -3,30 +3,30 @@ package com.illinois.beep;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.illinois.beep.database.AppDatabase;
-import com.illinois.beep.database.ConcreteAppDatabase;
 import com.illinois.beep.database.UserRestriction;
+import com.illinois.beep.database.UserRestrictionsDatabase;
+import com.illinois.beep.database.UserRestrictionsViewModel;
 
 /**
  * This class is a custom dialog presented to user when he wants to add a person to the app
  */
-public class AddPersonDialog extends Dialog implements android.view.View.OnClickListener {
+public class AddPersonDialog extends Dialog {
 
-    private Activity c;
+    private final FragmentActivity fragmentActivity;
     private Dialog d;
-    private FloatingActionButton cancelButton;
-    private MaterialButton submitButton;
     private EditText newNameEdit;
 
-    public AddPersonDialog(Activity a) {
-        super(a);
-        this.c = a;
+    public AddPersonDialog(FragmentActivity activity) {
+        super(activity);
+        this.fragmentActivity = activity;
     }
 
 
@@ -37,32 +37,21 @@ public class AddPersonDialog extends Dialog implements android.view.View.OnClick
         setContentView(R.layout.insert_name_popup);
 
         //Find all UI elements
-        cancelButton = findViewById(R.id.cancel_btn);
-        submitButton = findViewById(R.id.submit_btn);
+        FloatingActionButton cancelButton = findViewById(R.id.cancel_btn);
+        MaterialButton submitButton = findViewById(R.id.submit_btn);
         newNameEdit = findViewById(R.id.new_name_edit);
 
         //Set on click listeners
-        cancelButton.setOnClickListener(this);
-        submitButton.setOnClickListener(this);
+        submitButton.setOnClickListener($ ->{
+            String newName = newNameEdit.getText().toString();
+            UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenActivity.getUserRestrictionsViewModel();
+            userRestrictionsViewModel.insert(new UserRestriction(newName, "add"));
+            dismiss();
+        });
+
+        cancelButton.setOnClickListener($ -> {
+            dismiss();
+        });
     }
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.submit_btn:
-                //Read name from TextEdit and insert into db
-                String newName = newNameEdit.getText().toString();
-                AppDatabase db = ConcreteAppDatabase.getInstance(getContext());
-                db.userRestrictionsDao().insertOne(new UserRestriction(newName, null));
-                c.finish();
-                break;
-            case R.id.cancel_btn:
-                dismiss();
-                break;
-            default:
-                break;
-        }
-        dismiss();
-    }
 }

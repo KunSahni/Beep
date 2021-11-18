@@ -23,4 +23,5 @@
     <string name="name_prompt">Name:</string>
     <string name="submit_cue">SUBMIT</string>
     <string name="add_restriction_cue">Add Restriction</string>
+    <string name="add_restriction_popup_cue">Select one:</string>
 </resources>

@@ -43,22 +43,20 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <ListView
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:paddingLeft="35dp"
-                android:textColor="@color/black"/>
+                android:layout_height="wrap_content"
+                android:text="@string/add_restriction_popup_cue"
+                android:textColor="@color/black"
+                android:textSize="25sp"/>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp"/>
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/available_restrictions_recycler"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/submit_cue"
-                android:textColor="@color/off_white"
-                android:textAllCaps="false"
-                app:cornerRadius="@android:dimen/app_icon_size"
-                android:backgroundTint="@color/teal" />
+                android:textColor="@color/black"/>
         </LinearLayout>
 
 

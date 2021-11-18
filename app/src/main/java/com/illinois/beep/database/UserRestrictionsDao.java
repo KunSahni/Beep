@@ -1,8 +1,10 @@
 package com.illinois.beep.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
@@ -11,13 +13,13 @@ import java.util.List;
 public interface UserRestrictionsDao {
 
     /**
-     * @return all users contained in databases
+     * @return all user restrictions contained in database
      */
-    @Query("SELECT * FROM UserRestriction WHERE restriction=null")
-    List<UserRestriction> getAll();
+    @Query("SELECT * FROM UserRestriction WHERE restriction='add'")
+    LiveData<List<UserRestriction>> getAll();
 
     /**
-     * @return all users contained in databases
+     * @return all users contained in database
      */
     @Query("SELECT DISTINCT personName FROM UserRestriction")
     List<String> getAllUsers();
@@ -28,6 +30,20 @@ public interface UserRestrictionsDao {
      */
     @Query("SELECT restriction FROM UserRestriction WHERE personName LIKE :personName")
     List<String> getRestrictions(String personName);
+
+    /**
+     * @param personName name of person whose restrictions you want to lookup
+     * @return list of restrictions for person with the passed name
+     */
+    @Query("SELECT * FROM UserRestriction WHERE personName LIKE :personName")
+    List<UserRestriction> getRestrictionsObjects(String personName);
+
+    /**
+     * @param personName name of person whose restrictions you want to lookup
+     * @return list of restrictions for person with the passed name
+     */
+    @Query("SELECT * FROM UserRestriction WHERE personName LIKE :personName")
+    LiveData<List<UserRestriction>> getLiveRestrictionsObjects(String personName);
 
     /**
      * @param personName name of person which you want to lookup
@@ -43,7 +59,7 @@ public interface UserRestrictionsDao {
      * @return true if is favorite restriction, false otherwise
      */
     @Query("SELECT * FROM userrestriction WHERE personName LIKE :personName AND restriction LIKE :restriction LIMIT 1")
-    UserRestriction getObject(String personName, String restriction);
+    UserRestriction getUserRestriction(String personName, String restriction);
 
     /**
      * @param personName name of person
@@ -62,8 +78,8 @@ public interface UserRestrictionsDao {
     /**
      * @param userRestriction object which represent a user restriction and you want to insert
      */
-    @Insert
-    void insertOne(UserRestriction userRestriction);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertOne(UserRestriction userRestriction);
 
     /**
      * @param userRestriction object which represent a user restriction and you want to delete

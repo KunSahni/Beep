@@ -1,18 +1,24 @@
 package com.illinois.beep;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
 
-import androidx.room.Room;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.illinois.beep.database.AppDatabase;
-import com.illinois.beep.database.ConcreteAppDatabase;
+import com.illinois.beep.database.AddRestrictionListAdapter;
+import com.illinois.beep.database.RestrictionDatabase;
+import com.illinois.beep.database.UserRestrictionsViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is a custom dialog presented to user when he wants to add a restriction
@@ -21,17 +27,26 @@ import com.illinois.beep.database.ConcreteAppDatabase;
 public class AddRestrictionDialog extends Dialog implements
         android.view.View.OnClickListener {
 
-    private Activity c;
+    private final FragmentActivity c;
     private String personName;
     private Dialog d;
     private FloatingActionButton cancelButton;
-    private MaterialButton submitButton;
-    private EditText newNameEdit;
+    private final ArrayList<String> availableRestrictions;
+    private final UserRestrictionsViewModel userRestrictionsViewModel;
 
-    public AddRestrictionDialog(Activity a, String personName) {
+    public AddRestrictionDialog(FragmentActivity a, String personName) {
         super(a);
         this.c = a;
         this.personName = personName;
+        //Create a list of possible restriction excluding the ones user already has
+        userRestrictionsViewModel = ProfileScreenActivity.getUserRestrictionsViewModel();
+        List<String> currentRestriction = userRestrictionsViewModel.getRestrictions(personName);
+        List<String> allRestrictions = new ArrayList<>(RestrictionDatabase.getRestrictions());
+        for(String curRes:currentRestriction)
+            if(curRes != null)
+                allRestrictions.remove(curRes);
+        availableRestrictions = new ArrayList<>(allRestrictions);
+
     }
 
 
@@ -41,10 +56,12 @@ public class AddRestrictionDialog extends Dialog implements
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.add_restriction_popup);
         cancelButton = findViewById(R.id.cancel_btn);
-        submitButton = findViewById(R.id.submit_btn);
-        newNameEdit = findViewById(R.id.new_name_edit);
         cancelButton.setOnClickListener(this);
-        submitButton.setOnClickListener(this);
+
+        RecyclerView recyclerView = findViewById(R.id.available_restrictions_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(c));
+        AddRestrictionListAdapter adapter = new AddRestrictionListAdapter(c, this, availableRestrictions, personName);
+        recyclerView.setAdapter(adapter);
     }
 
     //todo: implement class
@@ -52,11 +69,6 @@ public class AddRestrictionDialog extends Dialog implements
     public void onClick(View view) {
 
         switch (view.getId()) {
-            case R.id.submit_btn:
-                String newName = newNameEdit.getText().toString();
-                AppDatabase db = ConcreteAppDatabase.getInstance(c);
-                c.finish();
-                break;
             case R.id.cancel_btn:
                 dismiss();
                 break;
