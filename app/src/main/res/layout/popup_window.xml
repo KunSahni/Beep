@@ -19,6 +19,7 @@
         android:ems="10"
         android:text="@string/shopping_question"/>
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextTextPersonName"
@@ -28,27 +29,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/myself"
-            android:onClick="checkButton"/>
+            android:onClick="checkRadioButton" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/allie"
-            android:onClick="checkButton"/>
+            android:onClick="checkRadioButton"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jim"
-            android:onClick="checkButton"/>
+            android:onClick="checkRadioButton"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alex"
-            android:onClick="checkButton"/>
+            android:onClick="checkRadioButton"/>
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sarah"
-            android:onClick="checkButton"/>
+            android:onClick="checkRadioButton"/>
 
     </RadioGroup>
 <!--    <androidx.recyclerview.widget.RecyclerView-->

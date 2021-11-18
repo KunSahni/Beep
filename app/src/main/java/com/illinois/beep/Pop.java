@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.illinois.beep.databinding.FragmentFirstBinding;
 
@@ -16,12 +21,16 @@ import java.util.ArrayList;
 import androidx.lifecycle.ViewModelProvider;
 
 public class Pop extends Activity {
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.popup_window);
+
+        radioGroup = findViewById(R.id.radioGroup);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -31,28 +40,9 @@ public class Pop extends Activity {
         getWindow().setLayout((int)(width * 0.9), (int)(height*0.8));
     }
 
-    private ListView l;
-    private FragmentFirstBinding binding;
-
-    //@Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
-
-//        l = view.findViewById(R.id.my_list_view);
-//        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), new ArrayList<>());
-//        l.setAdapter(adapter);
-//
-//        MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
-//
-//        myListViewModel.getMyList().observe(getViewLifecycleOwner(), adapter::updateMyList);
-
-
-
-        return view;
-
+    public void checkRadioButton(View v) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+        Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 }
