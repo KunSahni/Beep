@@ -122,6 +122,7 @@ public class FirstFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        // TODO: Do something if result fails
         String barcode = result.getContents();
         Log.d(LOG_TAG, "Barcode is " + barcode);
         Product matchedProduct = ProductDatabase.get(barcode);
