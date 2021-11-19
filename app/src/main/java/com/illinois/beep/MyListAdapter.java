@@ -2,7 +2,9 @@ package com.illinois.beep;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +19,14 @@ import java.util.List;
 import java.util.Set;
 
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavHost;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class MyListAdapter extends BaseAdapter {
 
@@ -30,11 +38,13 @@ public class MyListAdapter extends BaseAdapter {
 
     Context context;
     FragmentActivity activity;
+    Fragment fragment;
     List<MyListItem> myList;
 
-    public MyListAdapter(Context context, FragmentActivity activity, List<MyListItem> myList) {
+    public MyListAdapter(Context context, FragmentActivity activity, Fragment fragment, List<MyListItem> myList) {
         this.context = context;
         this.activity = activity;
+        this.fragment = fragment;
         this.myList = myList;
     }
 
@@ -59,16 +69,25 @@ public class MyListAdapter extends BaseAdapter {
         ViewHolder viewHolder;
         RestrictionViewModel restrictionViewModel = new ViewModelProvider(activity).get(RestrictionViewModel.class);
 
+        MyListItem item = myList.get(position);
+        Product product = item.getProduct();
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.my_list_item, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
+            convertView.setOnClickListener(v -> {
+                System.out.println(position + "th item clicked");
+                Bundle bundle = new Bundle();
+                bundle.putString("productId", product.getId());
+                bundle.putInt("position", position);
+                NavHostFragment.findNavController(fragment)
+                        .navigate(R.id.action_FirstFragment_to_substituteFragment, bundle);
+            });
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        MyListItem item = myList.get(position);
-        Product product = item.getProduct();
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
 
