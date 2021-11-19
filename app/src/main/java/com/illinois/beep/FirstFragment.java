@@ -1,5 +1,6 @@
 package com.illinois.beep;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -118,10 +119,19 @@ public class FirstFragment extends Fragment {
     }
 
     // Thank you: https://stackoverflow.com/questions/37251583/how-to-start-zxing-on-a-fragment :))
+    // https://stackoverflow.com/questions/31091328/zxing-qr-code-scanner-embedded-pressing-back-button-during-scan-issue
+    // https://developer.android.com/training/basics/intents/result
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result == null || resultCode != Activity.RESULT_OK) {
+            Log.d(LOG_TAG, "Null case");
+            Log.d(LOG_TAG, "Fails: " + result.getContents());
+           return;
+        }
+
+        Log.d(LOG_TAG, "Passes: " + result.getContents());
         // TODO: Do something if result fails
         String barcode = result.getContents();
         Log.d(LOG_TAG, "Barcode is " + barcode);
