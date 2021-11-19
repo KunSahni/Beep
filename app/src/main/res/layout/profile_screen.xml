@@ -124,7 +124,8 @@
                 android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/icon_add_person"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/teal" />
+                android:backgroundTint="@color/teal"
+                />
         </LinearLayout>
 
     </LinearLayout>
