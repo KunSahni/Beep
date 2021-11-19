@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:background="@color/gray"
+        android:background="@color/mid_gray"
         app:layout_constraintTop_toTopOf="parent"
         >
 
@@ -36,14 +36,16 @@
         android:layout_height="wrap_content"
         android:text="@string/substitutes"
         android:paddingVertical="20dp"
+        android:paddingHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_product_layout"/>
 
     <ListView
-        android:id="@+id/my_list_view"
+        android:id="@+id/substitute_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
         android:layout_marginBottom="100dp"
         android:background="#F2F4F4"
         android:divider="@android:color/transparent"

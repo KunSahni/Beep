@@ -41,7 +41,7 @@ public class FirstFragment extends Fragment {
 
 
         l = view.findViewById(R.id.my_list_view);
-        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), new ArrayList<>());
+        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
         l.setAdapter(adapter);
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
