@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ProfileInfo {
-  static Map<String, List<Preferance>> prefMap;
+  public static Map<String, List<Preferance>> prefMap;
 
   public static void setupSampleInfo() {
     prefMap = new HashMap<>();
