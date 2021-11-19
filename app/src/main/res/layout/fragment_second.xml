@@ -111,11 +111,12 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/edit_restrictions_cue"
+                android:text="Modify Restrictions"
                 android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/icon_edit_button"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/red"/>
+                android:backgroundTint="@color/red"
+                android:onClick="modifyRestrictions"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -124,7 +125,8 @@
                 android:textColor="@color/off_white"
                 android:drawableLeft="@drawable/icon_add_person"
                 android:textAllCaps="false"
-                android:backgroundTint="@color/teal" />
+                android:backgroundTint="@color/teal"
+                android:onClick="addPerson"/>
         </LinearLayout>
 
     </LinearLayout>
