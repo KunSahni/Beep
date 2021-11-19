@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,8 +78,11 @@ public class MyListAdapter extends BaseAdapter {
             convertView.setTag(viewHolder);
             convertView.setOnClickListener(v -> {
                 System.out.println(position + "th item clicked");
+                Bundle bundle = new Bundle();
+                bundle.putString("productId", product.getId());
+                bundle.putInt("position", position);
                 NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.action_FirstFragment_to_substituteFragment);
+                        .navigate(R.id.action_FirstFragment_to_substituteFragment, bundle);
             });
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

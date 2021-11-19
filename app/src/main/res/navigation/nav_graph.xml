@@ -40,5 +40,14 @@
         android:id="@+id/substituteFragment"
         android:name="com.illinois.beep.SubstituteFragment"
         android:label="fragment_substitutes"
-        tools:layout="@layout/fragment_substitutes" />
+        tools:layout="@layout/fragment_substitutes" >
+        <argument
+            android:name="productId"
+            app:argType="string"
+            android:defaultValue="0" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

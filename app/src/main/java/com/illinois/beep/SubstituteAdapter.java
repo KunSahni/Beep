@@ -12,8 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.illinois.beep.database.Product;
 import com.squareup.picasso.Picasso;
@@ -26,24 +24,25 @@ public class SubstituteAdapter extends BaseAdapter {
     Context context;
     FragmentActivity activity;
     Fragment fragment;
-    List<Product> myList;
-    Boolean selected = false;
+    List<Product> substitutes;
+    Set<Product> selectedSubstitutes;
 
-    public SubstituteAdapter(Context context, FragmentActivity activity, Fragment fragment, List<Product> myList) {
+    public SubstituteAdapter(Context context, FragmentActivity activity, Fragment fragment, List<Product> substitutes, Set<Product> selectedSubstitutes) {
         this.context = context;
         this.activity = activity;
         this.fragment = fragment;
-        this.myList = myList;
+        this.substitutes = substitutes;
+        this.selectedSubstitutes = selectedSubstitutes;
     }
 
     @Override
     public int getCount() {
-        return myList.size();
+        return substitutes.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return myList.get(position);
+        return substitutes.get(position);
     }
 
     @Override
@@ -56,7 +55,7 @@ public class SubstituteAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
 
-        Product product = myList.get(position);
+        Product product = substitutes.get(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.substitute_item, parent, false);
@@ -72,12 +71,13 @@ public class SubstituteAdapter extends BaseAdapter {
         }
 
         viewHolder.selectionFrame.setOnClickListener(v -> {
-            if (selected) {
+            if (selectedSubstitutes.contains(product)) {
                 viewHolder.selectionIcon.setBackgroundResource(R.drawable.bg_teal_circle);
+                selectedSubstitutes.remove(product);
             } else {
                 viewHolder.selectionIcon.setBackgroundResource(R.drawable.bg_teal_rounded);
+                selectedSubstitutes.add(product);
             }
-            selected = !selected;
         });
 
 
