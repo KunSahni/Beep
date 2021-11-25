@@ -13,11 +13,11 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/ProfileScreenFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.illinois.beep.SecondFragment"
+        android:id="@+id/ProfileScreenFragment"
+        android:name="com.illinois.beep.ProfileScreenFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 

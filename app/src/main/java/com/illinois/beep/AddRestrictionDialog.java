@@ -4,14 +4,11 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illinois.beep.database.AddRestrictionListAdapter;
 import com.illinois.beep.database.RestrictionDatabase;
@@ -39,7 +36,7 @@ public class AddRestrictionDialog extends Dialog implements
         this.c = a;
         this.personName = personName;
         //Create a list of possible restriction excluding the ones user already has
-        userRestrictionsViewModel = ProfileScreenActivity.getUserRestrictionsViewModel();
+        userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
         List<String> currentRestriction = userRestrictionsViewModel.getRestrictions(personName);
         List<String> allRestrictions = new ArrayList<>(RestrictionDatabase.getRestrictions());
         for(String curRes:currentRestriction)

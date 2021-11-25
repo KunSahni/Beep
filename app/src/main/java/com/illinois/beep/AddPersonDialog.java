@@ -1,18 +1,15 @@
 package com.illinois.beep;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.EditText;
 
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illinois.beep.database.UserRestriction;
-import com.illinois.beep.database.UserRestrictionsDatabase;
 import com.illinois.beep.database.UserRestrictionsViewModel;
 
 /**
@@ -44,7 +41,7 @@ public class AddPersonDialog extends Dialog {
         //Set on click listeners
         submitButton.setOnClickListener($ ->{
             String newName = newNameEdit.getText().toString();
-            UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenActivity.getUserRestrictionsViewModel();
+            UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
             userRestrictionsViewModel.insert(new UserRestriction(newName, "add"));
             dismiss();
         });

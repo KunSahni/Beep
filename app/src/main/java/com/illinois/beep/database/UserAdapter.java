@@ -5,13 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.illinois.beep.ProfileScreenActivity;
+import com.illinois.beep.ProfileScreenFragment;
 import com.illinois.beep.R;
 
 import java.util.ArrayList;
@@ -24,12 +24,12 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
             = new RecyclerView
             .RecycledViewPool();
     private final UserRestrictionsViewModel userRestrictionsViewModel;
-    private final AppCompatActivity activity;
+    private final FragmentActivity activity;
 
-    public UserAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, AppCompatActivity activity) {
+    public UserAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, FragmentActivity activity) {
         super(diffCallback);
         this.activity = activity;
-        this.userRestrictionsViewModel = ProfileScreenActivity.getUserRestrictionsViewModel();
+        this.userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
     }
 
     @Override

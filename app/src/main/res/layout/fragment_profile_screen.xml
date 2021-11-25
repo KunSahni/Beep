@@ -100,11 +100,10 @@
             android:paddingRight="25dp"
             android:paddingTop="10dp">
 
-            <!-- todo: change layout_height to wrap_content -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="300dp"
                 tools:listitem="@layout/user_recyclerview_item"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -148,4 +147,3 @@
     </LinearLayout>
 
 </FrameLayout>
-    <!--                android:backgroundTint="@color/teal_200"-->

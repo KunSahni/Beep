@@ -3,7 +3,6 @@ package com.illinois.beep.database;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 /*
 public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRestrictionViewHolder> {
 
@@ -38,6 +37,7 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
     }
 }
 */
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,9 +46,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.illinois.beep.AddPersonDialog;
 import com.illinois.beep.AddRestrictionDialog;
-import com.illinois.beep.ProfileScreenActivity;
+import com.illinois.beep.ProfileScreenFragment;
 import com.illinois.beep.R;
 
 import java.util.List;
@@ -56,10 +55,10 @@ import java.util.List;
 public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRestrictionAdapter.UserRestrictionViewHolder> {
 
     private List<UserRestriction> userRestrictionList;
-    private final AppCompatActivity activity;
+    private final FragmentActivity activity;
 
     // Constructor
-    UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, List<UserRestriction> userRestrictionList, AppCompatActivity activity)
+    UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, List<UserRestriction> userRestrictionList, FragmentActivity activity)
     {
         super(diffCallback);
         this.userRestrictionList = userRestrictionList;
@@ -117,7 +116,7 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                         .setImageResource(R.drawable.ic_star_on);
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
-                    ProfileScreenActivity.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
+                    ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
                     userRestrictionViewHolder
                             .icon
                             .setImageResource(R.drawable.ic_star_off);
@@ -129,7 +128,7 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                         .setImageResource(R.drawable.ic_star_off);
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
-                    ProfileScreenActivity.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
+                    ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
                     userRestrictionViewHolder
                             .icon
                             .setImageResource(R.drawable.ic_star_on);

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.illinois.beep.ProfileScreenActivity;
+import com.illinois.beep.ProfileScreenFragment;
 import com.illinois.beep.R;
 
 import java.util.List;
@@ -63,7 +63,7 @@ public class AddRestrictionListAdapter extends RecyclerView.Adapter<AddRestricti
 
         @Override
         public void onClick(View view) {
-            ProfileScreenActivity.getUserRestrictionsViewModel().insert(new UserRestriction(personName, restriction.getText().toString()));
+            ProfileScreenFragment.getUserRestrictionsViewModel().insert(new UserRestriction(personName, restriction.getText().toString()));
             parent.dismiss();
         }
     }

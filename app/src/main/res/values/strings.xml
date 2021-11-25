@@ -24,4 +24,5 @@
     <string name="submit_cue">SUBMIT</string>
     <string name="add_restriction_cue">Add Restriction</string>
     <string name="add_restriction_popup_cue">Select one:</string>
+    <string name="remove_user_popup_cue">Current users:</string>
 </resources>
