@@ -35,12 +35,6 @@ public class Pop extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.popup_window);
-<<<<<<< HEAD
-
-        //radioGroup = findViewById(R.id.radioGroup);
-
-=======
->>>>>>> b0c5d0a37fec20157b23dfc8d873ec55456861b3
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
@@ -199,43 +193,5 @@ public class Pop extends Activity {
         }
 
         Toast.makeText(this, "Cleared selections" , Toast.LENGTH_SHORT).show();
-    }
-
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.check_myself:
-                if (checked)
-                    Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
-            else
-                // Remove the meat
-                break;
-            case R.id.check_allie:
-                if (checked)
-                    Toast.makeText(this, "Selected Allie", Toast.LENGTH_SHORT).show();
-            else
-                // I'm lactose intolerant
-                break;
-            case R.id.check_jim:
-                if (checked)
-                    Toast.makeText(this, "Selected Jim", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
-            case R.id.check_alex:
-                if (checked)
-                    Toast.makeText(this, "Selected Alex", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
-            case R.id.check_sarah:
-                if (checked)
-                    Toast.makeText(this, "Selected Sarah", Toast.LENGTH_SHORT).show();
-                else
-                    // I'm lactose intolerant
-                    break;
-        }
     }
 }

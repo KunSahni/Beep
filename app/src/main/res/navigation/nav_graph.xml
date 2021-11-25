@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.illinois.beep.SecondFragment"
+        android:name="com.illinois.beep.ProfileScreenFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
