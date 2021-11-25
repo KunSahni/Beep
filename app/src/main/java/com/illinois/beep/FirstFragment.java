@@ -68,6 +68,12 @@ public class FirstFragment extends Fragment {
             NavHostFragment.findNavController(FirstFragment.this)
                     .navigate(R.id.action_FirstFragment_to_TestFragment);
         });
+        binding.settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FirstFragment.this.getActivity(),Pop.class));
+            }
+        });
 
         binding.peopleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +87,12 @@ public class FirstFragment extends Fragment {
         ImageButton cameraBtn = binding.cameraButton;
         ImageButton editBtn = binding.editButton;
 
-        editBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(FirstFragment.this.getActivity(),Pop.class));
-            }
-        });
+//        editBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(FirstFragment.this.getActivity(),Pop.class));
+//            }
+//        });
 
         IntentIntegrator integrator = IntentIntegrator.forSupportFragment(FirstFragment.this);
         integrator.setOrientationLocked(false); // don't force landscape
