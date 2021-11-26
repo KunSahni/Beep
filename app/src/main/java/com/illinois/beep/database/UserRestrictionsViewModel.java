@@ -28,6 +28,7 @@ public class UserRestrictionsViewModel extends AndroidViewModel {
     public void insert(UserRestriction userRestriction) { mRepository.insert(userRestriction); }
     public void delete(UserRestriction userRestriction) { mRepository.delete(userRestriction); }
     public void delete(String personName, String restriction){ mRepository.delete(personName, restriction); }
+    public void delete(String personName){ mRepository.delete(personName); }
 
     public void favorite(String personName, String restriction){ mRepository.favorite(personName, restriction); }
     public void unfavorite(String personName, String restriction){ mRepository.unfavorite(personName, restriction); }

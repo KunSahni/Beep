@@ -94,4 +94,10 @@ public interface UserRestrictionsDao {
     @Query("DELETE FROM userrestriction WHERE personName =:personName AND restriction =:restriction")
     void delete(String personName, String restriction);
 
+    /**
+     * @param personName name of user who you want to delete
+     */
+    @Query("DELETE FROM userrestriction WHERE personName =:personName")
+    void delete(String personName);
+
 }

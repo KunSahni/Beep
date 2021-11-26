@@ -54,8 +54,12 @@ public class ProfileScreenFragment extends Fragment{
         });
 
         binding.profilesBtn.setOnClickListener($ -> {
-            NavHostFragment.findNavController(ProfileScreenFragment.this)
-                    .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            int width = (int)(getResources().getDisplayMetrics().widthPixels*0.80);
+            int height = (int)(getResources().getDisplayMetrics().heightPixels*0.65);
+
+            RemovePersonDialog removePersonDialog = new RemovePersonDialog(getActivity());
+            removePersonDialog.show();
+            //removePersonDialog.getWindow().setLayout(width, height);
         });
 
         binding.modifyBtn.setOnClickListener($ -> {
