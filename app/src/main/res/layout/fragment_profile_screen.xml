@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:backgrou-mnd="@color/light_gray">
+    android:background="@color/light_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
