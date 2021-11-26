@@ -77,7 +77,7 @@ public class MyListAdapter extends BaseAdapter {
                 bundle.putString("productId", product.getId());
                 bundle.putInt("position", position);
                 NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.action_FirstFragment_to_substituteFragment, bundle);
+                        .navigate(R.id.action_FirstFragment_to_productReviewFragment, bundle);
             });
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

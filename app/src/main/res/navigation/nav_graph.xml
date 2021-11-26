@@ -19,8 +19,8 @@
             android:id="@+id/action_FirstFragment_to_TestFragment"
             app:destination="@id/addItemFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_substituteFragment"
-            app:destination="@id/substituteFragment" />
+            android:id="@+id/action_FirstFragment_to_productReviewFragment"
+            app:destination="@id/productReviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -49,5 +49,20 @@
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_substituteFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_substituteFragment_to_productReviewFragment"
+            app:destination="@id/productReviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productReviewFragment"
+        android:name="com.illinois.beep.ProductReviewFragment"
+        android:label="fragment_product_review"
+        tools:layout="@layout/fragment_product_review" >
+        <action
+            android:id="@+id/action_productReviewFragment_to_substituteFragment"
+            app:destination="@id/substituteFragment" />
     </fragment>
 </navigation>
