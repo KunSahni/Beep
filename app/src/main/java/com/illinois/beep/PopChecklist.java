@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 import androidx.lifecycle.ViewModelProvider;
 
-public class Pop extends Activity {
+public class PopChecklist extends Activity {
     CheckBox cb1, cb2, cb3, cb4, cb5;
     Button clearBtn;
 
@@ -55,22 +55,6 @@ public class Pop extends Activity {
                 cb5));
         clearBtn = findViewById(R.id.clear_button);
 
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("check_myself", false);
-//        cb1.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb2.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb3.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb4.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb5.setChecked(checked);
-
         // CheckBox cb = (CheckBox) findViewById(R.id.checkBox1);
         for(int i = 0; i < checkBoxes.size(); i++) {
             boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
@@ -79,56 +63,11 @@ public class Pop extends Activity {
             Log.d("Size:", String.valueOf(checkBoxes.size()));
             checkBoxes.get(i).setChecked(checked);
         }
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean(cb1.getText().toString(), false);
-//        cb1.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb2.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb3.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb4.setChecked(checked);
-//        boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-//                .getBoolean("checkBox1", false);
-//        cb5.setChecked(checked);
-
-//        saveBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                StringBuffer result = new StringBuffer();
-//                result.append("Selected: ");
-//                if(cb1.isChecked())
-//                    result.append("\n" + cb1.getText().toString());
-//
-//                if(cb2.isChecked())
-//                    result.append("\n" + cb1.getText().toString());
-//
-//                if(cb3.isChecked())
-//                    result.append("\n" + cb1.getText().toString());
-//
-//                if(cb4.isChecked())
-//                    result.append("\n" + cb1.getText().toString());
-//
-//                if(cb5.isChecked())
-//                    result.append("\n" + cb1.getText().toString());
-//
-//                if (!cb1.isChecked() && !cb2.isChecked() && !cb3.isChecked()
-//                        && !cb4.isChecked() && !cb5.isChecked())
-//                    result.append("\nNone");
-//            }
-//        });
     }
 
     public void onCheckboxClicked(View view) {
         boolean checked;
         CheckBox cb;
-//        if (checked) {
-//            Toast.makeText(this, "Selected " + cb.getText(), Toast.LENGTH_SHORT).show();
-//            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(cb.getText().toString(), checked).commit();
-//        }
 
         switch(view.getId()) {
             case R.id.check_myself:

@@ -27,7 +27,9 @@
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
-        <activity android:name=".Pop"
+        <activity android:name=".PopChecklist"
+            android:theme="@style/Theme.Beep.CustomTheme"></activity>
+        <activity android:name=".PopupHelp"
             android:theme="@style/Theme.Beep.CustomTheme"></activity>
     </application>
 

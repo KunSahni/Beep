@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ImageButton;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -21,7 +22,6 @@ import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -29,7 +29,6 @@ import com.google.zxing.integration.android.IntentResult;
 import com.illinois.beep.database.Product;
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.database.RestrictionDatabase;
-import com.illinois.beep.databinding.FragmentTestBinding;
 
 // Reference tutorial: https://code.luasoftware.com/tutorials/android/android-scan-qrcode-library/
 // as well as ZXING documentation
@@ -64,28 +63,29 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ImageButton peopleBtn = binding.peopleButton;
+        ImageButton cameraBtn = binding.cameraButton;
+        ImageButton editBtn = binding.editButton;
+        Button settings = binding.settingsBtn;
+
         binding.textviewTest.setOnClickListener(v -> {
             NavHostFragment.findNavController(FirstFragment.this)
                     .navigate(R.id.action_FirstFragment_to_TestFragment);
         });
-        binding.settingsBtn.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FirstFragment.this.getActivity(),Pop.class));
+                startActivity(new Intent(FirstFragment.this.getActivity(), PopChecklist.class));
             }
         });
 
-        binding.peopleButton.setOnClickListener(new View.OnClickListener() {
+        peopleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
-
-        ImageButton peopleBtn = binding.peopleButton;
-        ImageButton cameraBtn = binding.cameraButton;
-        ImageButton editBtn = binding.editButton;
 
 //        editBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -24,6 +24,9 @@
     <string name="done">done</string>
     <string name="substitutes">"Substitutes: "</string>
     <string name="shopping_question">"Who are you shopping for?"</string>
+    <string name="help">"Help:"</string>
+    <string name="faq">"FAQ:"</string>
+    <string name="qna">"Q: How do you add a person?\nA: Navigate to the profile screen and click the \"Add Person\" button.\n\nQ: How do you edit the restrictions of a person?\nA: Navigate to the profile screen and click the \"Modify Restrictions\" button.\n\nQ: What does the star mean?\nA: Starring a restriction means that it is very important. For example, you would star a severe peanut allergy, but probably not a mild lactose intolerance."</string>
 
     <string name="myself">"Myself</string>
     <string name="allie">"Allie</string>
