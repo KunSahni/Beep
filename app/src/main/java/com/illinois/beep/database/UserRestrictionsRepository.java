@@ -68,6 +68,12 @@ class UserRestrictionsRepository {
         });
     }
 
+    void delete(String personName) {
+        UserRestrictionsDatabase.databaseWriteExecutor.execute(() -> {
+            mUserRestrictionsDao.delete(personName);
+        });
+    }
+
     void favorite(String personName, String restriction) {
         UserRestrictionsDatabase.databaseWriteExecutor.execute(() -> {
             mUserRestrictionsDao.favorite(personName, restriction);
