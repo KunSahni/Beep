@@ -48,9 +48,11 @@ public class ProfileScreenFragment extends Fragment{
                     .navigate(R.id.action_SecondFragment_to_FirstFragment);
         });
 
-        binding.helpBtn.setOnClickListener($ -> {
-            NavHostFragment.findNavController(ProfileScreenFragment.this)
-                    .navigate(R.id.action_SecondFragment_to_FirstFragment);
+        binding.helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileScreenFragment.this.getActivity(), PopupHelp.class));
+            }
         });
 
         binding.profilesBtn.setOnClickListener($ -> {
