@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel;
 public class RestrictionViewModel extends ViewModel {
 
     private MutableLiveData<Set<String>> restrictions;
-    public LiveData<Set<String>> getRestrictions() {
+    public MutableLiveData<Set<String>> getRestrictions() {
         if (restrictions == null) {
             restrictions = new MutableLiveData<>();
             loadRestrictions();

@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModel;
 public class MyListViewModel extends ViewModel {
 
     private MutableLiveData<List<MyListItem>> myList;
-    public LiveData<List<MyListItem>> getMyList() {
+    public MutableLiveData<List<MyListItem>> getMyList() {
         if (myList == null) {
             myList = new MutableLiveData<>();
             loadMyList();

@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -23,6 +25,7 @@ import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -152,9 +155,11 @@ public class FirstFragment extends Fragment {
         Log.d(LOG_TAG, "We matched with " + matchedProduct.getImage_url());
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
-        List<MyListItem> list = myListViewModel.getMyList().getValue();
+        MutableLiveData<List<MyListItem>> liveList = myListViewModel.getMyList();
+        List<MyListItem> list = liveList.getValue();
         assert list != null;
         list.add(new MyListItem(matchedProduct, 1));
+        liveList.postValue(list);
     }
 
 }
