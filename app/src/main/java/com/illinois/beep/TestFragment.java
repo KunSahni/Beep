@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.illinois.beep.database.Product;
@@ -48,13 +49,15 @@ public class TestFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
-                List<MyListItem> list = myListViewModel.getMyList().getValue();
+                MutableLiveData<List<MyListItem>> liveList = myListViewModel.getMyList();
+                List<MyListItem> list = liveList.getValue();
                 assert list != null;
 
                 List<Product> products = new ArrayList<>(ProductDatabase.getDb().values());
                 Random rand = new Random();
                 Product randomProduct = products.get(rand.nextInt(products.size()));
                 list.add(new MyListItem(randomProduct, rand.nextInt(10)));
+                liveList.postValue(list);
             }
         });
 
