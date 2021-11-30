@@ -89,7 +89,7 @@ public class ProfileScreenFragment extends Fragment{
         restrictionsLayout = binding.restrictionsLinearLayout;
         restrictionLists = new ArrayList<>();
 
-        populateTable();
+        populateRecycler();
 
         return binding.getRoot();
 
@@ -101,7 +101,7 @@ public class ProfileScreenFragment extends Fragment{
      * @return an instance of userRestrictionsViewModel
      */
     public static UserRestrictionsViewModel getUserRestrictionsViewModel() {
-        return userRestrictionsViewModel;
+        return MainActivity.getUserRestrictionsViewModel();
     }
 
     public static void refreshData () {
@@ -130,12 +130,12 @@ public class ProfileScreenFragment extends Fragment{
         regularAdapter.notifyDataSetChanged();
     }
 
-    private void populateTable() {
+    private void populateRecycler() {
         new Thread() {
             @Override
             public void run() {
 
-                userRestrictionsViewModel = new ViewModelProvider(ProfileScreenFragment.this).get(UserRestrictionsViewModel.class);
+                userRestrictionsViewModel = MainActivity.getUserRestrictionsViewModel();
                 try {
 
                     // code runs in a thread

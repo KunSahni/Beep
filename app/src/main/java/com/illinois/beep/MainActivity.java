@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.database.RestrictionDatabase;
+import com.illinois.beep.database.UserRestrictionsViewModel;
 import com.illinois.beep.databinding.ActivityMainBinding;
 
 import android.view.Menu;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private static UserRestrictionsViewModel userRestrictionsViewModel = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        userRestrictionsViewModel = new ViewModelProvider(this).get(UserRestrictionsViewModel.class);
     }
 
     @Override
@@ -91,5 +95,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    /**
+     * Static method which returns the current userRestrictionsViewModel
+     * @return an instance of userRestrictionsViewModel
+     */
+    public static UserRestrictionsViewModel getUserRestrictionsViewModel() {
+        return userRestrictionsViewModel;
     }
 }
