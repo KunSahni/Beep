@@ -136,9 +136,6 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
                     ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
-                    userRestrictionViewHolder
-                            .icon
-                            .setImageResource(R.drawable.ic_star_off);
                 });
             }
             //If not a favorite then display regular icon
@@ -149,9 +146,6 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
                     ProfileScreenFragment.getUserRestrictionsViewModel().favorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
-                    userRestrictionViewHolder
-                            .icon
-                            .setImageResource(R.drawable.ic_star_on);
                 });
             }
         }
