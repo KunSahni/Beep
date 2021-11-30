@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ImageButton;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -142,6 +143,12 @@ public class FirstFragment extends Fragment {
         String barcode = result.getContents();
         Log.d(LOG_TAG, "Barcode is " + barcode);
         Product matchedProduct = ProductDatabase.get(barcode);
+        if (matchedProduct == null) {
+            Log.d(LOG_TAG, "Product doesn't exist");
+            Toast.makeText(getActivity(), "Product doesn't exist in store", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Log.d(LOG_TAG, "We matched with " + matchedProduct.getImage_url());
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
