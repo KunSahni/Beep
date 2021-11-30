@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
@@ -25,11 +26,13 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
             .RecycledViewPool();
     private final UserRestrictionsViewModel userRestrictionsViewModel;
     private final FragmentActivity activity;
+    private final boolean isEditMode;
 
-    public UserAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, FragmentActivity activity) {
+    public UserAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, FragmentActivity activity, boolean isEditMode) {
         super(diffCallback);
         this.activity = activity;
         this.userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
+        this.isEditMode = isEditMode;
     }
 
     @Override
@@ -80,11 +83,7 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
         // Create an instance of the child
         // item view adapter and set its
         // adapter, layout manager and RecyclerViewPool
-        UserRestrictionAdapter childItemAdapter
-                = new UserRestrictionAdapter(new UserAdapter.UserRestrictionDiff(), currentRestrictions, activity);
-
-        //userRestrictionsViewModel.getLiveRestrictionsObjects(current.getPersonName()).observe(activity, childItemAdapter::submitList);
-
+        UserRestrictionAdapter childItemAdapter = new UserRestrictionAdapter(new UserAdapter.UserRestrictionDiff(), currentRestrictions, activity, isEditMode);
 
         UserViewHolder
                 .childRecyclerView
@@ -96,7 +95,6 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
                 .childRecyclerView
                 .setRecycledViewPool(viewPool);
     }
-
 
     public static class UserRestrictionDiff extends DiffUtil.ItemCallback<UserRestriction> {
 

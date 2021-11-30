@@ -5,6 +5,10 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 class UserRestrictionsRepository {
 
@@ -24,28 +28,77 @@ class UserRestrictionsRepository {
         return mAllRestriction;
     }
 
-    UserRestriction getUserRestriction(String personName, String restriction) {
-        return db.userRestrictionsDao().getUserRestriction(personName, restriction);
+    UserRestriction getUserRestriction(String personName, String restriction) throws ExecutionException, InterruptedException {
+        Callable<UserRestriction> callable = new Callable<UserRestriction>() {
+            @Override
+            public UserRestriction call() throws Exception {
+                return db.userRestrictionsDao().getUserRestriction(personName, restriction);
+            }
+        };
+
+        Future<UserRestriction> future = Executors.newSingleThreadExecutor().submit(callable);
+
+        return future.get();
     }
 
-    int isFavorite(String personName, String restriction) {
-        return db.userRestrictionsDao().isFavorite(personName, restriction);
+    int isFavorite(String personName, String restriction) throws ExecutionException, InterruptedException {
+
+        Callable<Integer> callable = new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                return db.userRestrictionsDao().isFavorite(personName, restriction);
+            }
+        };
+
+        Future<Integer> future = Executors.newSingleThreadExecutor().submit(callable);
+
+        return future.get();
     }
 
-    List<String> getRestrictions(String personName) {
-        return db.userRestrictionsDao().getRestrictions(personName);
+    List<String> getRestrictions(String personName) throws ExecutionException, InterruptedException {
+
+        Callable<List<String>> callable = new Callable<List<String>>() {
+            @Override
+            public List<String> call() throws Exception {
+                return db.userRestrictionsDao().getRestrictions(personName);
+            }
+        };
+
+        Future<List<String>> future = Executors.newSingleThreadExecutor().submit(callable);
+
+        return future.get();
     }
 
-    List<UserRestriction> getRestrictionsObjects(String personName) {
-        return db.userRestrictionsDao().getRestrictionsObjects(personName);
+    List<UserRestriction> getRestrictionsObjects(String personName) throws ExecutionException, InterruptedException {
+
+        Callable<List<UserRestriction>> callable = new Callable<List<UserRestriction>>() {
+            @Override
+            public List<UserRestriction> call() throws Exception {
+                return db.userRestrictionsDao().getRestrictionsObjects(personName);
+            }
+        };
+
+        Future<List<UserRestriction>> future = Executors.newSingleThreadExecutor().submit(callable);
+
+        return future.get();
     }
 
-    LiveData<List<UserRestriction>> getLiveRestrictionsObjects(String personName) {
-        return db.userRestrictionsDao().getLiveRestrictionsObjects(personName);
+    LiveData<List<UserRestriction>> getUserRestrictions(String personName) {
+        return db.userRestrictionsDao().getUserRestrictions(personName);
     }
 
-    List<String> getAllUsers() {
-        return db.userRestrictionsDao().getAllUsers();
+    List<String> getAllUsers() throws ExecutionException, InterruptedException {
+
+        Callable<List<String>> callable = new Callable<List<String>>() {
+            @Override
+            public List<String> call() throws Exception {
+                return db.userRestrictionsDao().getAllUsers();
+            }
+        };
+
+        Future<List<String>> future = Executors.newSingleThreadExecutor().submit(callable);
+
+        return future.get();
     }
 
     //Create, update and delete operations

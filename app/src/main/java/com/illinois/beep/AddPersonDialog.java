@@ -43,6 +43,7 @@ public class AddPersonDialog extends Dialog {
             String newName = newNameEdit.getText().toString();
             UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
             userRestrictionsViewModel.insert(new UserRestriction(newName, "add"));
+            ProfileScreenFragment.refreshData();
             dismiss();
         });
 
