@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * This is now the access point for all data, to understand better what each query does,
@@ -34,27 +35,52 @@ public class UserRestrictionsViewModel extends AndroidViewModel {
     public void unfavorite(String personName, String restriction){ mRepository.unfavorite(personName, restriction); }
 
     public UserRestriction getUserRestriction(String personName, String restriction){
-        return mRepository.getUserRestriction(personName, restriction);
+        try {
+            return mRepository.getUserRestriction(personName, restriction);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public int isFavorite(String personName, String restriction){
-        return mRepository.isFavorite(personName, restriction);
+        try {
+            return mRepository.isFavorite(personName, restriction);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
     public List<String> getRestrictions(String personName){
-        return mRepository.getRestrictions(personName);
+        try {
+            return mRepository.getRestrictions(personName);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public List<UserRestriction> getRestrictionsObjects(String personName){
-        return mRepository.getRestrictionsObjects(personName);
+        try {
+            return mRepository.getRestrictionsObjects(personName);
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public LiveData<List<UserRestriction>> getLiveRestrictionsObjects(String personName){
-        return mRepository.getLiveRestrictionsObjects(personName);
+    public LiveData<List<UserRestriction>> getUserRestrictions(String personName){
+        return mRepository.getUserRestrictions(personName);
     }
 
     public List<String> getAllUsers(){
-        return mRepository.getAllUsers();
+        try {
+            return mRepository.getAllUsers();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

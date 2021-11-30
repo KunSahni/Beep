@@ -1,6 +1,7 @@
 package com.illinois.beep.database;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,7 +16,7 @@ public interface UserRestrictionsDao {
     /**
      * @return all user restrictions contained in database
      */
-    @Query("SELECT * FROM UserRestriction WHERE restriction='add'")
+    @Query("SELECT * FROM UserRestriction")
     LiveData<List<UserRestriction>> getAll();
 
     /**
@@ -43,7 +44,7 @@ public interface UserRestrictionsDao {
      * @return list of restrictions for person with the passed name
      */
     @Query("SELECT * FROM UserRestriction WHERE personName LIKE :personName")
-    LiveData<List<UserRestriction>> getLiveRestrictionsObjects(String personName);
+    LiveData<List<UserRestriction>> getUserRestrictions(String personName);
 
     /**
      * @param personName name of person which you want to lookup

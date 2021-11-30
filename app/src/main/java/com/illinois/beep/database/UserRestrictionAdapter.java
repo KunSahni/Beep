@@ -56,13 +56,15 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
 
     private List<UserRestriction> userRestrictionList;
     private final FragmentActivity activity;
+    private final boolean isEditMode;
 
     // Constructor
-    UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, List<UserRestriction> userRestrictionList, FragmentActivity activity)
+    UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, List<UserRestriction> userRestrictionList, FragmentActivity activity, boolean isEditMode)
     {
         super(diffCallback);
         this.userRestrictionList = userRestrictionList;
         this.activity = activity;
+        this.isEditMode = isEditMode;
     }
 
     @NonNull
@@ -100,6 +102,10 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
             userRestrictionViewHolder
                     .icon
                     .setImageResource(R.drawable.ic_add_restriction);
+
+            if(isEditMode)
+                userRestrictionViewHolder.icon.setClickable(false);
+
             userRestrictionViewHolder.icon.setOnClickListener($ ->
                     {
                         AddRestrictionDialog addRestrictionDialog = new AddRestrictionDialog(activity, currentRestriction.getPersonName());
@@ -110,7 +116,20 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
             userRestrictionViewHolder
                     .restrictionName
                     .setText(currentRestriction.getRestriction());
-            if(currentRestriction.getFavorite() == 1){
+
+            //If in edit mode display remove icons
+            if(isEditMode){
+                userRestrictionViewHolder
+                        .icon
+                        .setImageResource(R.drawable.ic_remove);
+                userRestrictionViewHolder.icon.setOnClickListener($ ->
+                {
+                    ProfileScreenFragment.getUserRestrictionsViewModel().delete(currentRestriction.getPersonName(), currentRestriction.getRestriction());
+                    notifyDataSetChanged();
+                });
+            }
+            //If favorite then display favorite icon
+            else if(currentRestriction.getFavorite() == 1){
                 userRestrictionViewHolder
                         .icon
                         .setImageResource(R.drawable.ic_star_on);
@@ -122,13 +141,14 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                             .setImageResource(R.drawable.ic_star_off);
                 });
             }
+            //If not a favorite then display regular icon
             else{
                 userRestrictionViewHolder
                         .icon
                         .setImageResource(R.drawable.ic_star_off);
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
-                    ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
+                    ProfileScreenFragment.getUserRestrictionsViewModel().favorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
                     userRestrictionViewHolder
                             .icon
                             .setImageResource(R.drawable.ic_star_on);
