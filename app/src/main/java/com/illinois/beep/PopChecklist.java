@@ -1,6 +1,8 @@
 package com.illinois.beep;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Button;
@@ -18,16 +21,20 @@ import android.widget.RadioGroup;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.illinois.beep.database.UserRestriction;
 import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import androidx.core.widget.CompoundButtonCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 public class PopChecklist extends Activity {
     CheckBox cb1, cb2, cb3, cb4, cb5;
+    List<CheckBox> persons;
     Button clearBtn;
 
     @Override
@@ -42,7 +49,34 @@ public class PopChecklist extends Activity {
 
         getWindow().setLayout((int) (width * 0.9), (int) (height * 0.8));
 
-        cb1 = findViewById(R.id.check_myself);
+        LinearLayout ll = findViewById(R.id.layout);
+        persons = new ArrayList<>();
+
+        //Add All checkboxes to UI
+        for(String name:MainActivity.getUserRestrictionsViewModel().getAllUsers()){
+            CheckBox temp = new CheckBox(this);
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            temp.setLayoutParams(lp);
+            if (Build.VERSION.SDK_INT < 21) {
+                CompoundButtonCompat.setButtonTintList(temp, ColorStateList.valueOf(getResources().getColor(R.color.teal)));//Use android.support.v4.widget.CompoundButtonCompat when necessary else
+            } else {
+                temp.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.teal)));//setButtonTintList is accessible directly on API>19
+            }
+            temp.setText(name);
+            temp.setOnClickListener($ ->
+                    {
+                        Boolean checked = temp.isChecked();
+                        PreferenceManager.getDefaultSharedPreferences(this).edit()
+                                .putBoolean(name, checked).commit();
+                        Toast.makeText(this, "Selected " + name, Toast.LENGTH_SHORT).show();
+                    }
+            );
+            persons.add(temp);
+            ll.addView(temp, persons.size()+1);
+        }
+
+
+        /*cb1 = findViewById(R.id.check_myself);
         cb2 = findViewById(R.id.check_allie);
         cb3 = findViewById(R.id.check_jim);
         cb4 = findViewById(R.id.check_alex);
@@ -52,64 +86,21 @@ public class PopChecklist extends Activity {
                 cb2,
                 cb3,
                 cb4,
-                cb5));
+                cb5));*/
         clearBtn = findViewById(R.id.clear_button);
 
         // CheckBox cb = (CheckBox) findViewById(R.id.checkBox1);
-        for(int i = 0; i < checkBoxes.size(); i++) {
+        for(int i = 0; i < persons.size(); i++) {
             boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
-                    .getBoolean(String.valueOf(checkBoxes.get(i).getId()), false);
-            Log.d("Checked:", String.valueOf(checkBoxes.get(i).isChecked()));
-            Log.d("Size:", String.valueOf(checkBoxes.size()));
-            checkBoxes.get(i).setChecked(checked);
-        }
-    }
-
-    public void onCheckboxClicked(View view) {
-        boolean checked;
-        CheckBox cb;
-
-        switch(view.getId()) {
-            case R.id.check_myself:
-                cb = findViewById(R.id.check_myself);
-                checked = cb.isChecked();
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
-                        .putBoolean(String.valueOf(findViewById(R.id.check_myself).getId()), checked).commit();
-                Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_allie:
-                cb = findViewById(R.id.check_allie);
-                checked = cb.isChecked();
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
-                        .putBoolean(String.valueOf(findViewById(R.id.check_allie).getId()), checked).commit();
-                Toast.makeText(this, "Selected myself", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_jim:
-                cb = findViewById(R.id.check_jim);
-                checked = cb.isChecked();
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
-                        .putBoolean(String.valueOf(findViewById(R.id.check_jim).getId()), checked).commit();
-                Toast.makeText(this, "Selected Jim", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_alex:
-                cb = findViewById(R.id.check_alex);
-                checked = cb.isChecked();
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
-                        .putBoolean(String.valueOf(findViewById(R.id.check_alex).getId()), checked).commit();
-                Toast.makeText(this, "Selected Alex", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.check_sarah:
-                cb = findViewById(R.id.check_sarah);
-                checked = cb.isChecked();
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
-                        .putBoolean(String.valueOf(findViewById(R.id.check_sarah).getId()), checked).commit();
-                Toast.makeText(this, "Selected Sarah", Toast.LENGTH_SHORT).show();
-                break;
+                    .getBoolean(String.valueOf(persons.get(i).getText().toString()), false);
+            Log.d("Checked:", String.valueOf(persons.get(i).isChecked()));
+            Log.d("Size:", String.valueOf(persons.size()));
+            persons.get(i).setChecked(checked);
         }
     }
 
     public void saveChecklist(View view) {
-        CheckBox cb1, cb2, cb3, cb4, cb5;
+        /*CheckBox cb1, cb2, cb3, cb4, cb5;
         cb1 = findViewById(R.id.check_myself);
         cb2 = findViewById(R.id.check_allie);
         cb3 = findViewById(R.id.check_jim);
@@ -121,14 +112,14 @@ public class PopChecklist extends Activity {
                 cb2,
                 cb3,
                 cb4,
-                cb5));
+                cb5));*/
 
-        for(int i = 0; i < checkBoxes.size(); i++) {
-            CheckBox curr = checkBoxes.get(i);
+        for(int i = 0; i < persons.size(); i++) {
+            CheckBox curr = persons.get(i);
             if (curr.isChecked())
                 curr.setChecked(false);
             PreferenceManager.getDefaultSharedPreferences(this).edit()
-                    .putBoolean(String.valueOf(checkBoxes.get(i).getId()), false).commit();
+                    .putBoolean(persons.get(i).getText().toString(), false).commit();
         }
 
         Toast.makeText(this, "Cleared selections" , Toast.LENGTH_SHORT).show();
