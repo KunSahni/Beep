@@ -64,5 +64,8 @@
         <action
             android:id="@+id/action_productReviewFragment_to_substituteFragment"
             app:destination="@id/substituteFragment" />
+        <action
+            android:id="@+id/action_productReviewFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

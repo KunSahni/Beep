@@ -9,12 +9,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.illinois.beep.database.Product;
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.databinding.FragmentProductReviewBinding;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 public class ProductReviewFragment extends Fragment {
     FragmentProductReviewBinding binding;
@@ -70,6 +74,15 @@ public class ProductReviewFragment extends Fragment {
             bundle.putInt("position", position);
             NavHostFragment.findNavController(this)
                     .navigate(R.id.action_productReviewFragment_to_substituteFragment, bundle);
+        });
+
+        MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
+        binding.addToListButton.setOnClickListener(v -> {
+            int quantity = Integer.parseInt(binding.productQuantityValue.getText().toString());
+
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_productReviewFragment_to_FirstFragment);
+            myListViewModel.append(new MyListItem(product, quantity));
         });
     }
 }
