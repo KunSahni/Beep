@@ -69,7 +69,7 @@ public class ProfileScreenFragment extends Fragment{
         });
 
         binding.modifyBtn.setOnClickListener($ -> {
-            if(binding.modifyBtn.getText().toString().equals(String.valueOf(R.string.edit_restrictions_cue)))
+            if(binding.modifyBtn.getText().toString().equals(getString(R.string.edit_restrictions_cue)))
                 editMode();
             else
                 regularMode();
@@ -108,26 +108,72 @@ public class ProfileScreenFragment extends Fragment{
         regularAdapter.notifyDataSetChanged();
     }
 
-    protected static void editMode () {
-        //setup everything needed for restrictions list
-        RecyclerView recyclerView = binding.recyclerview;
-        binding.modifyBtn.setText(R.string.edit_restrictions_done);
-        recyclerView.setAdapter(null);
-        recyclerView.setLayoutManager(null);
-        recyclerView.setAdapter(editAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
-        editAdapter.notifyDataSetChanged();
+    protected void editMode() {
+        new Thread() {
+            @Override
+            public void run() {
+                userRestrictionsViewModel = MainActivity.getUserRestrictionsViewModel();
+                try {
+                    // code runs in a thread
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //setup everything needed for restrictions list
+                            RecyclerView recyclerView = binding.recyclerview;
+                            editAdapter = new UserAdapter(new UserAdapter.UserRestrictionDiff(), getActivity(), true);
+                            //Modify button text
+                            binding.modifyBtn.setText(R.string.edit_restrictions_done);
+                            //Redraw recyclerview
+                            recyclerView.setAdapter(null);
+                            recyclerView.setLayoutManager(null);
+                            recyclerView.setAdapter(editAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
+                            // Observe updates on restrictions
+                            userRestrictionsViewModel.getAllRestrictions().observe(getViewLifecycleOwner(),new Observer<List<UserRestriction>>() {
+                                @Override
+                                public void onChanged(List<UserRestriction> restrictions) {
+                                    List<UserRestriction> onlyNames = new ArrayList<>();
+                                    for (UserRestriction u:restrictions)
+                                        if(u.getRestriction().equals("add"))
+                                            onlyNames.add(u);
+                                    editAdapter.submitList(onlyNames);
+                                    recyclerView.setAdapter(null);
+                                    recyclerView.setLayoutManager(null);
+                                    recyclerView.setAdapter(editAdapter);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
+                                    editAdapter.notifyDataSetChanged();
+                                }
+                            });
+                            editAdapter.notifyDataSetChanged();
+                        }
+                    });
+                } catch (final Exception ex) {
+                    Log.i("---","Exception in thread");
+                }
+            }
+        }.start();
     }
 
-    protected static void regularMode () {
-        //setup everything needed for restrictions list
-        RecyclerView recyclerView = binding.recyclerview;
-        binding.modifyBtn.setText(R.string.edit_restrictions_cue);
-        recyclerView.setAdapter(null);
-        recyclerView.setLayoutManager(null);
-        recyclerView.setAdapter(regularAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
-        regularAdapter.notifyDataSetChanged();
+    protected void regularMode() {
+        new Thread() {
+            @Override
+            public void run() {
+                userRestrictionsViewModel = MainActivity.getUserRestrictionsViewModel();
+                try {
+                    // code runs in a thread
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Modify button text
+                            binding.modifyBtn.setText(R.string.edit_restrictions_cue);
+                            populateRecycler();
+                        }
+                    });
+                } catch (final Exception ex) {
+                    Log.i("---","Exception in thread");
+                }
+            }
+        }.start();
     }
 
     private void populateRecycler() {
@@ -145,10 +191,9 @@ public class ProfileScreenFragment extends Fragment{
                             //setup everything needed for restrictions list
                             RecyclerView recyclerView = binding.recyclerview;
                             regularAdapter = new UserAdapter(new UserAdapter.UserRestrictionDiff(), getActivity(), false);
-                            editAdapter = new UserAdapter(new UserAdapter.UserRestrictionDiff(), getActivity(), true);
                             recyclerView.setAdapter(regularAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
-                            // Update the cached copy of the words in the regularAdapter.
+                            // Observe updates on restrictions
                             userRestrictionsViewModel.getAllRestrictions().observe(getViewLifecycleOwner(),new Observer<List<UserRestriction>>() {
                                 @Override
                                 public void onChanged(List<UserRestriction> restrictions) {
@@ -164,7 +209,6 @@ public class ProfileScreenFragment extends Fragment{
                                     regularAdapter.notifyDataSetChanged();
                                 }
                             });
-                            userRestrictionsViewModel.getAllRestrictions().observe(getViewLifecycleOwner(), editAdapter::submitList);
                             regularAdapter.notifyDataSetChanged();
                         }
                     });
