@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -123,6 +124,7 @@ public class ProfileScreenFragment extends Fragment{
                             editAdapter = new UserAdapter(new UserAdapter.UserRestrictionDiff(), getActivity(), true);
                             //Modify button text
                             binding.modifyBtn.setText(R.string.edit_restrictions_done);
+                            binding.modifyBtn.setBackgroundColor(0xFF888993);
                             //Redraw recyclerview
                             recyclerView.setAdapter(null);
                             recyclerView.setLayoutManager(null);
@@ -166,6 +168,7 @@ public class ProfileScreenFragment extends Fragment{
                         public void run() {
                             //Modify button text
                             binding.modifyBtn.setText(R.string.edit_restrictions_cue);
+                            binding.modifyBtn.setBackgroundColor(0xFFE44A3D);
                             populateRecycler();
                         }
                     });
