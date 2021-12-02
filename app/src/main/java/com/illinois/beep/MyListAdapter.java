@@ -76,6 +76,7 @@ public class MyListAdapter extends BaseAdapter {
                 Bundle bundle = new Bundle();
                 bundle.putString("productId", product.getId());
                 bundle.putInt("position", position);
+                bundle.putInt("quantity", item.quantity);
                 NavHostFragment.findNavController(fragment)
                         .navigate(R.id.action_FirstFragment_to_productReviewFragment, bundle);
             });

@@ -41,7 +41,10 @@ public class ProductReviewFragment extends Fragment {
         assert this.getArguments() != null;
         productId = this.getArguments().getString("productId");
         position = this.getArguments().getInt("positionIndex", -1);
+        int initQuantity = this.getArguments().getInt("quantity", 1);
         binding = FragmentProductReviewBinding.inflate(inflater, container, false);
+
+        binding.productQuantityValue.setText(String.valueOf(initQuantity));
 
         System.out.println("product review frag.");
         return binding.getRoot();
@@ -83,6 +86,10 @@ public class ProductReviewFragment extends Fragment {
             NavHostFragment.findNavController(this)
                     .navigate(R.id.action_productReviewFragment_to_FirstFragment);
             myListViewModel.append(new MyListItem(product, quantity));
+        });
+
+        binding.backButton.setOnClickListener(v -> {
+            NavHostFragment.findNavController(this).popBackStack();
         });
     }
 }
