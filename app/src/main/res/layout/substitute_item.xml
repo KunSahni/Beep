@@ -40,7 +40,7 @@
 
     </LinearLayout>
     <ImageView
-        android:id="@+id/restriction_icon"
+        android:id="@+id/visit_product_preview_icon"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_arrow_button"
         android:layout_width="25dp"

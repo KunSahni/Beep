@@ -57,7 +57,7 @@ public class SubstituteFragment extends Fragment {
 
         Picasso.get().load(product.getImage_url()).into(binding.mainProductImage);
 
-        binding.mainProductName.setText(product.getName());
+        binding.productName.setText(product.getName());
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
 
@@ -89,7 +89,9 @@ public class SubstituteFragment extends Fragment {
                 assert list != null;
 
                 if (selectedSubstitutes.size() > 0) {
-                    list.remove(baseProductPosition);
+                    if (baseProductPosition >= 0) {
+                        list.remove(baseProductPosition);
+                    }
                     for (Product substitute: selectedSubstitutes) {
                         list.add(new MyListItem(substitute, 1));
                     }

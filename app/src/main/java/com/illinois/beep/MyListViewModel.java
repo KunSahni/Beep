@@ -33,4 +33,13 @@ public class MyListViewModel extends ViewModel {
 
         myList.postValue(items);
     }
+
+    public void append(MyListItem item) {
+        MutableLiveData<List<MyListItem>> liveList = this.getMyList();
+        List<MyListItem> list = liveList.getValue();
+        assert list != null;
+        list.add(item);
+
+        liveList.setValue(list);
+    }
 }

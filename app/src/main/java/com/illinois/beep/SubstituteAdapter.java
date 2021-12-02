@@ -2,6 +2,7 @@ package com.illinois.beep;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.illinois.beep.database.Product;
 import com.squareup.picasso.Picasso;
@@ -80,6 +82,14 @@ public class SubstituteAdapter extends BaseAdapter {
             }
         });
 
+        viewHolder.visitProductReviewIcon.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("productId", product.getId());
+            bundle.putInt("position", position);
+            NavHostFragment.findNavController(fragment)
+                    .navigate(R.id.action_substituteFragment_to_productReviewFragment, bundle);
+        });
+
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
         viewHolder.productName.setText(product.getName());
@@ -95,12 +105,14 @@ public class SubstituteAdapter extends BaseAdapter {
         ImageView selectionIcon;
         ImageView productImage;
         TextView productName;
+        ImageView visitProductReviewIcon;
 
         public ViewHolder(View view) {
             selectionFrame = view.findViewById(R.id.selection_frame);
             selectionIcon = view.findViewById(R.id.selection_icon);
             productImage = view.findViewById(R.id.product_image);
             productName = view.findViewById(R.id.product_name);
+            visitProductReviewIcon = view.findViewById(R.id.visit_product_preview_icon);
         }
     }
 }
