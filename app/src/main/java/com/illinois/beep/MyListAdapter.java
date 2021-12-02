@@ -1,8 +1,6 @@
 package com.illinois.beep;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,31 +13,29 @@ import android.widget.TextView;
 import com.illinois.beep.database.Product;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavHost;
-import androidx.navigation.NavHostController;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class MyListAdapter extends BaseAdapter {
 
     enum RestrictionLevel {
-      GOOD,
-      WARN,
-      BAD,
+        GOOD,
+        WARN,
+        DANGER,
     };
 
     Context context;
     FragmentActivity activity;
     Fragment fragment;
     List<MyListItem> myList;
+    Set<String> dangerRestrictions = new HashSet<>();
+    Set<String> warningRestrictions = new HashSet<>();
 
     public MyListAdapter(Context context, FragmentActivity activity, Fragment fragment, List<MyListItem> myList) {
         this.context = context;
@@ -67,7 +63,6 @@ public class MyListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        RestrictionViewModel restrictionViewModel = new ViewModelProvider(activity).get(RestrictionViewModel.class);
 
         MyListItem item = myList.get(position);
         Product product = item.getProduct();
@@ -90,21 +85,29 @@ public class MyListAdapter extends BaseAdapter {
 
 
         Picasso.get().load(product.getImage_url()).into(viewHolder.productImage);
-
-        Set<String> restrictions = restrictionViewModel.getRestrictions().getValue();
         RestrictionLevel restrictionLevel = RestrictionLevel.GOOD;
-        assert restrictions != null;
-        for (String restriction: restrictions) {
-            if (product.getIndications().getOrDefault(restriction, false)) {
+
+        for (String restriction: warningRestrictions) {
+            if (Boolean.TRUE.equals(product.getIndications().getOrDefault(restriction, false))) {
                 restrictionLevel = RestrictionLevel.WARN;
+                break;
             }
         }
 
+        for (String restriction: dangerRestrictions) {
+            if (Boolean.TRUE.equals(product.getIndications().getOrDefault(restriction, false))) {
+                restrictionLevel = RestrictionLevel.DANGER;
+                break;
+            }
+        }
+
+
+        // based on restriction level to set UI icon
         switch (restrictionLevel) {
             case WARN:
                 viewHolder.restrictionIcon.setImageResource(R.drawable.ic_warning);
                 break;
-            case BAD:
+            case DANGER:
                 viewHolder.restrictionIcon.setImageResource(R.drawable.ic_minus_icon);
                 break;
             default:
@@ -119,6 +122,12 @@ public class MyListAdapter extends BaseAdapter {
 
     public void updateMyList(List<MyListItem> myList) {
         this.myList = myList;
+        notifyDataSetChanged();
+    }
+
+    public void updateRestrictions(Set<String> warningRestrictions, Set<String> dangerRestrictions) {
+        this.warningRestrictions = warningRestrictions;
+        this.dangerRestrictions = dangerRestrictions;
         notifyDataSetChanged();
     }
 
