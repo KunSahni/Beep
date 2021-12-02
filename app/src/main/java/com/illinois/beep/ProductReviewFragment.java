@@ -70,7 +70,9 @@ public class ProductReviewFragment extends Fragment {
         binding.productName.setText(product.getName());
         binding.productDescriptionText.setText(product.getDescription());
         binding.productDescriptionText.setText(product.getDescription());
-        binding.productIngredientText.setText(product.getIngredients().toString());
+
+        String ingredientText = product.getIngredients().toString();
+        binding.productIngredientText.setText(ingredientText.substring(1, ingredientText.length() - 1));
 
         binding.productQuantityIncreaseButton.setOnClickListener(v -> {
            int quantity = Integer.parseInt(binding.productQuantityValue.getText().toString());
