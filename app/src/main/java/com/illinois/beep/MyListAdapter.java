@@ -20,6 +20,7 @@ import java.util.Set;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
@@ -40,6 +41,26 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             restrictionIcon = view.findViewById(R.id.restriction_icon);
         }
     }
+
+    public static class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
+        private final MyListAdapter mAdapter;
+        public SwipeToDeleteCallback(MyListAdapter adapter) {
+            super(0,ItemTouchHelper.LEFT);
+            mAdapter = adapter;
+        }
+
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            int position = viewHolder.getAdapterPosition();
+            mAdapter.deleteItem(position);
+        }
+    };
+
 
     enum RestrictionLevel {
         GOOD,
@@ -134,5 +155,10 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         this.warningRestrictions = warningRestrictions;
         this.dangerRestrictions = dangerRestrictions;
         notifyDataSetChanged();
+    }
+
+    public void deleteItem(int position) {
+        myList.remove(position);
+        notifyItemRemoved(position);
     }
 }

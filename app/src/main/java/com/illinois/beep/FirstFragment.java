@@ -22,6 +22,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -77,6 +78,8 @@ public class FirstFragment extends Fragment {
         dividerItemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(recyclerView.getContext(), R.drawable.recyclerview_divider)));
         recyclerView.addItemDecoration(dividerItemDecoration);
         recyclerView.setAdapter(adapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new MyListAdapter.SwipeToDeleteCallback(adapter));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
 
