@@ -46,6 +46,14 @@ public class FirstFragment extends Fragment {
     private String LOG_TAG = "Test";
     private FragmentFirstBinding binding;
     private ListView l;
+    Set<String> dangerRestrictions = new HashSet<>();
+    Set<String> warningRestrictions = new HashSet<>();
+    MyListAdapter adapter;
+
+    private final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
+        recalculateRestrictions(sharedPreferences);
+        adapter.updateRestrictions(warningRestrictions, dangerRestrictions);
+    };
 
     @Override
     public View onCreateView(
@@ -56,7 +64,7 @@ public class FirstFragment extends Fragment {
         View view = binding.getRoot();
 
         l = view.findViewById(R.id.my_list_view);
-        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
+        adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
         l.setAdapter(adapter);
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
@@ -64,19 +72,8 @@ public class FirstFragment extends Fragment {
         myListViewModel.getMyList().observe(getViewLifecycleOwner(), adapter::updateMyList);
 
 
-        Set<String> dangerRestrictions = new HashSet<>();
-        Set<String> warningRestrictions = new HashSet<>();
-        recalculateRestrictions(PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()),
-                warningRestrictions, dangerRestrictions);
+        recalculateRestrictions(PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()));
         adapter.updateRestrictions(warningRestrictions, dangerRestrictions);
-
-        PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()).registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
-
-            recalculateRestrictions(sharedPreferences, warningRestrictions, dangerRestrictions);
-
-            adapter.updateRestrictions(warningRestrictions, dangerRestrictions);
-        });
-
 
         return view;
 
@@ -138,11 +135,15 @@ public class FirstFragment extends Fragment {
                 integrator.initiateScan();
             }
         });
+
+        PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()).registerOnSharedPreferenceChangeListener(preferenceChangeListener);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()).unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
+
         binding = null;
     }
 
@@ -180,8 +181,7 @@ public class FirstFragment extends Fragment {
         liveList.postValue(list);
     }
 
-
-    private void recalculateRestrictions(SharedPreferences sharedPreferences, Set<String> warningRestrictions, Set<String> dangerRestrictions) {
+    private void recalculateRestrictions(SharedPreferences sharedPreferences) {
         warningRestrictions.clear();
         dangerRestrictions.clear();
 
