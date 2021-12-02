@@ -1,8 +1,10 @@
 package com.illinois.beep;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.illinois.beep.database.Product;
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.database.RestrictionDatabase;
+import com.illinois.beep.database.UserRestriction;
+import com.illinois.beep.database.UserRestrictionsViewModel;
 import com.illinois.beep.databinding.FragmentSubstitutesBinding;
 import com.squareup.picasso.Picasso;
 
@@ -56,13 +60,22 @@ public class SubstituteFragment extends Fragment {
         binding.mainProductName.setText(product.getName());
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
-        RestrictionViewModel restrictionViewModel = new ViewModelProvider(requireActivity()).get(RestrictionViewModel.class);
 
         l = view.findViewById(R.id.substitute_list_view);
+
+        Set<String> dangerRestrictions = getDangerRestrictions();
         List<Product> substitutes = new ArrayList<>();
         for (String subId: product.getSubstitutes()) {
             if (!subId.equals(productId)) {
-                substitutes.add(ProductDatabase.get(subId));
+                boolean isDangerSubstitute = false;
+                for (String restriction: dangerRestrictions) {
+                    if (Boolean.TRUE.equals(ProductDatabase.get(subId).getIndications().getOrDefault(restriction, false))) {
+                        isDangerSubstitute = true;
+                    }
+                }
+                if (!isDangerSubstitute) {
+                    substitutes.add(ProductDatabase.get(subId));
+                }
             }
         }
 
@@ -92,5 +105,29 @@ public class SubstituteFragment extends Fragment {
                 NavHostFragment.findNavController(SubstituteFragment.this).popBackStack();
             }
         });
+    }
+
+    private Set<String> getDangerRestrictions() {
+        Set<String> dangerRestrictions = new HashSet<>();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext());
+
+        // get selected profile names
+        List<String> profileNames = new ArrayList<>();
+        for(String name: MainActivity.getUserRestrictionsViewModel().getAllUsers()) {
+            if (sharedPreferences.getBoolean(name, false)) {
+                profileNames.add(name);
+            }
+        }
+
+        // flat the restrictions into danger (favorite) and warning set
+        UserRestrictionsViewModel restrictionsViewModel = MainActivity.getUserRestrictionsViewModel();
+        for (String name: profileNames) {
+            for (UserRestriction userRestriction: restrictionsViewModel.getRestrictionsObjects(name)) {
+                if (userRestriction.getFavorite() == 1) {
+                    dangerRestrictions.add(userRestriction.getRestriction());
+                }
+            }
+        }
+        return dangerRestrictions;
     }
 }

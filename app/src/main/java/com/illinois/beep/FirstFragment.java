@@ -2,8 +2,10 @@ package com.illinois.beep;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,23 +18,24 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.illinois.beep.database.UserRestriction;
+import com.illinois.beep.database.UserRestrictionsViewModel;
 import com.illinois.beep.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
+import java.util.Set;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import com.illinois.beep.database.Product;
 import com.illinois.beep.database.ProductDatabase;
-import com.illinois.beep.database.RestrictionDatabase;
 
 // Reference tutorial: https://code.luasoftware.com/tutorials/android/android-scan-qrcode-library/
 // as well as ZXING documentation
@@ -43,6 +46,14 @@ public class FirstFragment extends Fragment {
     private String LOG_TAG = "Test";
     private FragmentFirstBinding binding;
     private ListView l;
+    Set<String> dangerRestrictions = new HashSet<>();
+    Set<String> warningRestrictions = new HashSet<>();
+    MyListAdapter adapter;
+
+    private final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
+        recalculateRestrictions(sharedPreferences);
+        adapter.updateRestrictions(warningRestrictions, dangerRestrictions);
+    };
 
     @Override
     public View onCreateView(
@@ -53,12 +64,16 @@ public class FirstFragment extends Fragment {
         View view = binding.getRoot();
 
         l = view.findViewById(R.id.my_list_view);
-        MyListAdapter adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
+        adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
         l.setAdapter(adapter);
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
 
         myListViewModel.getMyList().observe(getViewLifecycleOwner(), adapter::updateMyList);
+
+
+        recalculateRestrictions(PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()));
+        adapter.updateRestrictions(warningRestrictions, dangerRestrictions);
 
         return view;
 
@@ -120,11 +135,15 @@ public class FirstFragment extends Fragment {
                 integrator.initiateScan();
             }
         });
+
+        PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()).registerOnSharedPreferenceChangeListener(preferenceChangeListener);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext()).unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
+
         binding = null;
     }
 
@@ -162,4 +181,28 @@ public class FirstFragment extends Fragment {
         liveList.postValue(list);
     }
 
+    private void recalculateRestrictions(SharedPreferences sharedPreferences) {
+        warningRestrictions.clear();
+        dangerRestrictions.clear();
+
+        // get selected profile names
+        List<String> profileNames = new ArrayList<>();
+        for(String name: MainActivity.getUserRestrictionsViewModel().getAllUsers()) {
+            if (sharedPreferences.getBoolean(name, false)) {
+                profileNames.add(name);
+            }
+        }
+
+        // flat the restrictions into danger (favorite) and warning set
+        UserRestrictionsViewModel restrictionsViewModel = MainActivity.getUserRestrictionsViewModel();
+        for (String name: profileNames) {
+            for (UserRestriction userRestriction: restrictionsViewModel.getRestrictionsObjects(name)) {
+                if (userRestriction.getFavorite() == 1) {
+                    dangerRestrictions.add(userRestriction.getRestriction());
+                } else {
+                    warningRestrictions.add(userRestriction.getRestriction());
+                }
+            }
+        }
+    }
 }
