@@ -13,7 +13,7 @@
     <string name="back_button_text">Home</string>
     <string name="edit_button_text">edit</string>
     <string name="profile_screen_header">important restrictions</string>
-    <string name="user_name">user_name</string>
+    <string name="user_name">Insert your name</string>
     <string name="pronouns">pronouns</string>
     <string name="add_person_cue">Add Person</string>
     <string name="edit_restrictions_cue">Modify restrictions</string>

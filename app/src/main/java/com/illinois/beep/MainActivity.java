@@ -17,6 +17,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.illinois.beep.database.ProductDatabase;
 import com.illinois.beep.database.RestrictionDatabase;
+import com.illinois.beep.database.UserRestriction;
 import com.illinois.beep.database.UserRestrictionsViewModel;
 import com.illinois.beep.databinding.ActivityMainBinding;
 
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         userRestrictionsViewModel = new ViewModelProvider(this).get(UserRestrictionsViewModel.class);
+        if(!userRestrictionsViewModel.getAllUsers().contains("Me"))
+            userRestrictionsViewModel.insert(new UserRestriction("Me", "add"));
     }
 
     @Override

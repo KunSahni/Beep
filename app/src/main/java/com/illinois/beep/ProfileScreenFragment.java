@@ -7,7 +7,12 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +30,12 @@ import com.illinois.beep.database.UserRestriction;
 import com.illinois.beep.database.UserRestrictionsViewModel;
 import com.illinois.beep.databinding.FragmentProfileScreenBinding;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +51,7 @@ public class ProfileScreenFragment extends Fragment{
     private static FragmentProfileScreenBinding binding;
     private static UserAdapter regularAdapter;
     private static UserAdapter editAdapter;
+    private static final int PICK_PHOTO_FOR_AVATAR = 0;
 
     //todo: implement help, profiles and modify
     @Override
@@ -51,6 +63,12 @@ public class ProfileScreenFragment extends Fragment{
             NavHostFragment.findNavController(ProfileScreenFragment.this)
                     .navigate(R.id.action_SecondFragment_to_FirstFragment);
         });
+
+        binding.userPicture.setOnClickListener($ -> {
+            pickImage();
+        });
+        ContextWrapper cw = new ContextWrapper(getActivity().getApplicationContext());
+        loadImageFromStorage(cw.getDir("imageDir", Context.MODE_PRIVATE).getAbsolutePath());
 
         binding.helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +235,68 @@ public class ProfileScreenFragment extends Fragment{
                 }
             }
         }.start();
+
+    }
+
+    public void pickImage() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_PHOTO_FOR_AVATAR && resultCode == Activity.RESULT_OK) {
+            if (data == null) {
+                //Display an error
+                return;
+            }
+            try {
+                InputStream inputStream = getActivity().getContentResolver().openInputStream(data.getData());
+                Bitmap bmp = BitmapFactory.decodeStream(inputStream);
+                saveToInternalStorage(bmp);
+                binding.userPicture.setImageBitmap(bmp);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private String saveToInternalStorage(Bitmap bitmapImage){
+        ContextWrapper cw = new ContextWrapper(getActivity().getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath=new File(directory,"profile.jpg");
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return directory.getAbsolutePath();
+    }
+
+    private void loadImageFromStorage(String path)
+    {
+        try {
+            File f=new File(path, "profile.jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            binding.userPicture.setImageBitmap(b);
+        }
+        catch (FileNotFoundException e)
+        {
+        }
 
     }
 }
