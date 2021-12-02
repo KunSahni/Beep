@@ -1,14 +1,13 @@
 [
-    "vegan",
-    "vegetarian",
-    "lactose",
     "eggs",
+    "fish",
+    "gluten",
+    "lactose",
     "milks",
     "peanuts",
     "shellfish",
-    "wheat",
     "soy",
-    "fish",
-    "gluten"
+    "vegan",
+    "vegetarian",
+    "wheat"
 ]
-
