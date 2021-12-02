@@ -53,6 +53,7 @@ public class ProfileScreenFragment extends Fragment{
     private static UserAdapter editAdapter;
     private static final int PICK_PHOTO_FOR_AVATAR = 0;
 
+
     //todo: implement help, profiles and modify
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -64,18 +65,19 @@ public class ProfileScreenFragment extends Fragment{
                     .navigate(R.id.action_SecondFragment_to_FirstFragment);
         });
 
-        binding.userPicture.setOnClickListener($ -> {
-            pickImage();
-        });
-        ContextWrapper cw = new ContextWrapper(getActivity().getApplicationContext());
-        loadImageFromStorage(cw.getDir("imageDir", Context.MODE_PRIVATE).getAbsolutePath());
-
         binding.helpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileScreenFragment.this.getActivity(), PopupHelp.class));
             }
         });
+
+        binding.userPicture.setOnClickListener($ -> {
+            pickImage();
+        });
+        ContextWrapper cw = new ContextWrapper(getActivity().getApplicationContext());
+        loadImageFromStorage(cw.getDir("imageDir", Context.MODE_PRIVATE).getAbsolutePath());
+
 
         binding.profilesBtn.setOnClickListener($ -> {
             int width = (int)(getResources().getDisplayMetrics().widthPixels*0.80);
@@ -235,8 +237,8 @@ public class ProfileScreenFragment extends Fragment{
                 }
             }
         }.start();
-
     }
+
 
     public void pickImage() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
