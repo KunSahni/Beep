@@ -101,10 +101,10 @@ public class FirstFragment extends Fragment {
         //ImageButton editBtn = binding.editButton;
         Button settings = binding.settingsBtn;
 
-        binding.textviewTest.setOnClickListener(v -> {
-            NavHostFragment.findNavController(FirstFragment.this)
-                    .navigate(R.id.action_FirstFragment_to_TestFragment);
-        });
+//        binding.textviewTest.setOnClickListener(v -> {
+//            NavHostFragment.findNavController(FirstFragment.this)
+//                    .navigate(R.id.action_FirstFragment_to_TestFragment);
+//        });
         peopleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
