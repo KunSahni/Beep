@@ -10,17 +10,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.ImageButton;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.illinois.beep.database.UserRestriction;
 import com.illinois.beep.database.UserRestrictionsViewModel;
@@ -29,6 +33,7 @@ import com.illinois.beep.databinding.FragmentFirstBinding;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -45,7 +50,7 @@ public class FirstFragment extends Fragment {
 
     private String LOG_TAG = "Test";
     private FragmentFirstBinding binding;
-    private ListView l;
+    private RecyclerView recyclerView;
     Set<String> dangerRestrictions = new HashSet<>();
     Set<String> warningRestrictions = new HashSet<>();
     MyListAdapter adapter;
@@ -63,9 +68,18 @@ public class FirstFragment extends Fragment {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        l = view.findViewById(R.id.my_list_view);
-        adapter = new MyListAdapter(binding.getRoot().getContext(), requireActivity(), FirstFragment.this, new ArrayList<>());
-        l.setAdapter(adapter);
+        recyclerView = view.findViewById(R.id.my_list_view);
+        adapter = new MyListAdapter(FirstFragment.this, new ArrayList<>());
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(recyclerView.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        dividerItemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(recyclerView.getContext(), R.drawable.recyclerview_divider)));
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setAdapter(adapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new MyListAdapter.SwipeToDeleteCallback(adapter));
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         MyListViewModel myListViewModel = new ViewModelProvider(requireActivity()).get(MyListViewModel.class);
 
