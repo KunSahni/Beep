@@ -18,7 +18,6 @@ import java.util.List;
 
 public class PopChecklist extends Activity {
     List<CheckBox> persons;
-    Button clearBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +58,6 @@ public class PopChecklist extends Activity {
             ll.addView(temp, persons.size()+1);
         }
 
-        clearBtn = findViewById(R.id.clear_button);
-
         // CheckBox cb = (CheckBox) findViewById(R.id.checkBox1);
         for(int i = 0; i < persons.size(); i++) {
             boolean checked = PreferenceManager.getDefaultSharedPreferences(this)
@@ -69,6 +66,7 @@ public class PopChecklist extends Activity {
             Log.d("Size:", String.valueOf(persons.size()));
             persons.get(i).setChecked(checked);
         }
+
     }
 
     public void saveChecklist(View view) {
