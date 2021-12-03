@@ -84,7 +84,7 @@ public class FirstFragment extends Fragment {
 
         ImageButton peopleBtn = binding.peopleButton;
         ImageButton cameraBtn = binding.cameraButton;
-        ImageButton editBtn = binding.editButton;
+        //ImageButton editBtn = binding.editButton;
         Button settings = binding.settingsBtn;
 
         binding.textviewTest.setOnClickListener(v -> {
