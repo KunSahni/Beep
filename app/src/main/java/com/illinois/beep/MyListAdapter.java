@@ -186,7 +186,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 viewHolder.restrictionIcon.setImageResource(R.drawable.ic_warning);
                 break;
             case DANGER:
-                viewHolder.restrictionIcon.setImageResource(R.drawable.ic_minus_icon);
+                viewHolder.restrictionIcon.setImageResource(R.drawable.ic_buttontest);
                 break;
             default:
                 viewHolder.restrictionIcon.setImageResource(R.drawable.ic_icon_good);

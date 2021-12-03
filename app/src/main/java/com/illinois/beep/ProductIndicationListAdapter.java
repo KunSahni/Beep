@@ -57,7 +57,7 @@ public class ProductIndicationListAdapter extends RecyclerView.Adapter<ProductIn
                 viewHolder.indicationIcon.setImageResource(R.drawable.ic_warning);
                 break;
             case BAD:
-                viewHolder.indicationIcon.setImageResource(R.drawable.ic_minus_icon);
+                viewHolder.indicationIcon.setImageResource(R.drawable.ic_buttontest);
                 break;
             default:
                 viewHolder.indicationIcon.setImageResource(R.drawable.ic_icon_good);
