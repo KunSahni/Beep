@@ -3,40 +3,6 @@ package com.illinois.beep.database;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-/*
-public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRestrictionViewHolder> {
-
-    public UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback) {
-        super(diffCallback);
-    }
-
-    @Override
-    public UserRestrictionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return UserRestrictionViewHolder.create(parent);
-    }
-
-    @Override
-    public void onBindViewHolder(UserRestrictionViewHolder holder, int position) {
-        UserRestriction current = (UserRestriction) getItem(position);
-        holder.bind(current.getPersonName());
-    }
-
-    public static class UserRestrictionDiff extends DiffUtil.ItemCallback<UserRestriction> {
-
-        @Override
-        public boolean areItemsTheSame(@NonNull UserRestriction oldItem, @NonNull UserRestriction newItem) {
-            return oldItem == newItem;
-        }
-
-        @Override
-        public boolean areContentsTheSame(@NonNull UserRestriction oldItem, @NonNull UserRestriction newItem) {
-            return oldItem.getPersonName().equals(newItem.getPersonName()) &&
-                    oldItem.getRestriction().equals(newItem.getRestriction()) &&
-                    oldItem.getFavorite() == newItem.getFavorite();
-        }
-    }
-}
-*/
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
@@ -52,13 +18,23 @@ import com.illinois.beep.R;
 
 import java.util.List;
 
+/**
+ * This is the adapter which manages the inner RecyclerView used to display restrictions
+ * for a specific user.
+ * The class inflates the layout and manages all interactions with UI elements.
+ */
 public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRestrictionAdapter.UserRestrictionViewHolder> {
 
-    private List<UserRestriction> userRestrictionList;
+    private final List<UserRestriction> userRestrictionList;
     private final FragmentActivity activity;
     private final boolean isEditMode;
 
-    // Constructor
+    /**
+     *
+     * @param userRestrictionList list of current restrictions
+     * @param activity activity in which the adapter is used
+     * @param isEditMode true if adapter should display edit mode, false if it should display regular mode
+     */
     UserRestrictionAdapter(@NonNull DiffUtil.ItemCallback<UserRestriction> diffCallback, List<UserRestriction> userRestrictionList, FragmentActivity activity, boolean isEditMode)
     {
         super(diffCallback);
@@ -88,12 +64,10 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
             int position)
     {
 
-        // Create an instance of the ChildItem
-        // class for the given position
-        UserRestriction currentRestriction
-                = userRestrictionList.get(position);
+        //Get the current restriction
+        UserRestriction currentRestriction = userRestrictionList.get(position);
 
-        // For the created instance, set title.
+        //Based on the restriction personalize the content of the row
         if(currentRestriction.getRestriction().equals("add")) {
             userRestrictionViewHolder
                     .restrictionName
@@ -106,6 +80,7 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
             if(isEditMode)
                 userRestrictionViewHolder.icon.setClickable(false);
 
+            //Listener opens popup where the user can select a new restriction
             userRestrictionViewHolder.icon.setOnClickListener($ ->
                     {
                         AddRestrictionDialog addRestrictionDialog = new AddRestrictionDialog(activity, currentRestriction.getPersonName());
@@ -122,6 +97,7 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                 userRestrictionViewHolder
                         .icon
                         .setImageResource(R.drawable.ic_remove);
+                //Listener deletes selected restriction
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
                 {
                     ProfileScreenFragment.getUserRestrictionsViewModel().delete(currentRestriction.getPersonName(), currentRestriction.getRestriction());
@@ -133,20 +109,18 @@ public class UserRestrictionAdapter extends ListAdapter<UserRestriction, UserRes
                 userRestrictionViewHolder
                         .icon
                         .setImageResource(R.drawable.ic_star_on);
+                //Listener removes selected restrictions from favorites
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
-                {
-                    ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
-                });
+                        ProfileScreenFragment.getUserRestrictionsViewModel().unfavorite(currentRestriction.getPersonName(), currentRestriction.getRestriction()));
             }
             //If not a favorite then display regular icon
             else{
                 userRestrictionViewHolder
                         .icon
                         .setImageResource(R.drawable.ic_star_off);
+                //Listener adds selected restrictions to favorites
                 userRestrictionViewHolder.icon.setOnClickListener($ ->
-                {
-                    ProfileScreenFragment.getUserRestrictionsViewModel().favorite(currentRestriction.getPersonName(), currentRestriction.getRestriction());
-                });
+                        ProfileScreenFragment.getUserRestrictionsViewModel().favorite(currentRestriction.getPersonName(), currentRestriction.getRestriction()));
             }
         }
 

@@ -25,18 +25,19 @@ public class AddRestrictionDialog extends Dialog implements
         android.view.View.OnClickListener {
 
     private final FragmentActivity c;
-    private String personName;
-    private Dialog d;
-    private FloatingActionButton cancelButton;
+    private final String personName;
     private final ArrayList<String> availableRestrictions;
-    private final UserRestrictionsViewModel userRestrictionsViewModel;
 
+    /**
+     * @param a activity in which the popup will be displayed
+     * @param personName name of person for whom restriction might be added
+     */
     public AddRestrictionDialog(FragmentActivity a, String personName) {
         super(a);
         this.c = a;
         this.personName = personName;
         //Create a list of possible restriction excluding the ones user already has
-        userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
+        UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
         List<String> currentRestriction = userRestrictionsViewModel.getRestrictions(personName);
         List<String> allRestrictions = new ArrayList<>(RestrictionDatabase.getRestrictions());
         for(String curRes:currentRestriction)
@@ -52,7 +53,8 @@ public class AddRestrictionDialog extends Dialog implements
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.add_restriction_popup);
-        cancelButton = findViewById(R.id.cancel_btn);
+        //Retrieve UI elements and set listeners
+        FloatingActionButton cancelButton = findViewById(R.id.cancel_btn);
         cancelButton.setOnClickListener(this);
 
         RecyclerView recyclerView = findViewById(R.id.available_restrictions_recycler);
@@ -65,12 +67,8 @@ public class AddRestrictionDialog extends Dialog implements
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.cancel_btn:
-                dismiss();
-                break;
-            default:
-                break;
+        if (view.getId() == R.id.cancel_btn) {
+            dismiss();
         }
         dismiss();
     }

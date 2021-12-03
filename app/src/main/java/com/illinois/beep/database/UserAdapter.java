@@ -18,6 +18,10 @@ import com.illinois.beep.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is an adapter which manages the RecyclerView used to display users and their restrictions.
+ * The class inflates the layout and manages all interactions with UI elements.
+ */
 public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
 
     private final RecyclerView.RecycledViewPool
@@ -52,13 +56,7 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
         UserRestriction current = (UserRestriction) getItem(position);
         holder.bind(current.getPersonName());
 
-
-        // Create a layout manager
-        // to assign a layout
-        // to the RecyclerView.
-
-        // Here we have assigned the layout
-        // as LinearLayout with vertical orientation
+        //Layout manages used to assign layout to RecyclerView
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(
                 UserViewHolder
@@ -67,30 +65,26 @@ public class UserAdapter extends ListAdapter<UserRestriction, UserViewHolder> {
                 LinearLayoutManager.VERTICAL,
                 false);
 
+        //Get a list of the current restrictions which will be submitted to inner RecyclerView
         List<UserRestriction> currentRestrictions = new ArrayList<>(userRestrictionsViewModel.getRestrictionsObjects(current.getPersonName()));
 
-        // Since this is a nested layout, so
-        // to define how many child items
-        // should be prefetched when the
-        // child RecyclerView is nested
-        // inside the parent RecyclerView,
-        // we use the following method
+        // Define number of elements in child
         layoutManager
                     .setInitialPrefetchItemCount(
                             currentRestrictions
                                     .size());
 
         // Create an instance of the child
-        // item view adapter and set its
-        // adapter, layout manager and RecyclerViewPool
         UserRestrictionAdapter childItemAdapter = new UserRestrictionAdapter(new UserAdapter.UserRestrictionDiff(), currentRestrictions, activity, isEditMode);
-
+        //Set its layout manager
         UserViewHolder
                 .childRecyclerView
                 .setLayoutManager(layoutManager);
+        //Set its adapter
         UserViewHolder
                 .childRecyclerView
                 .setAdapter(childItemAdapter);
+        //set its RecyclerViewPool
         UserViewHolder
                 .childRecyclerView
                 .setRecycledViewPool(viewPool);

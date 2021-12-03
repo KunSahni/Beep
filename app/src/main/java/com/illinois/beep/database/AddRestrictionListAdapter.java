@@ -14,13 +14,16 @@ import com.illinois.beep.R;
 
 import java.util.List;
 
+/**
+ * This is an adapter which manages the RecyclerView used to add restrictions.
+ * The class inflates the layout and manages all interactions with UI elements.
+ */
 public class AddRestrictionListAdapter extends RecyclerView.Adapter<AddRestrictionListAdapter.ViewHolder> {
 
     private final String personName;
     private final Dialog parent;
     private final List<String> mData;
     private final LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
 
     // data is passed into the constructor
     public AddRestrictionListAdapter(Context context, Dialog parent, List<String> data, String personName) {
@@ -66,20 +69,5 @@ public class AddRestrictionListAdapter extends RecyclerView.Adapter<AddRestricti
             ProfileScreenFragment.getUserRestrictionsViewModel().insert(new UserRestriction(personName, restriction.getText().toString()));
             parent.dismiss();
         }
-    }
-
-    // convenience method for getting data at click position
-    String getItem(int id) {
-        return mData.get(id);
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
     }
 }

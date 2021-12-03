@@ -17,13 +17,14 @@ import com.illinois.beep.database.UserRestrictionsViewModel;
  */
 public class AddPersonDialog extends Dialog {
 
-    private final FragmentActivity fragmentActivity;
-    private Dialog d;
     private EditText newNameEdit;
 
+    /**
+     *
+     * @param activity activity in which the popup will be displayed
+     */
     public AddPersonDialog(FragmentActivity activity) {
         super(activity);
-        this.fragmentActivity = activity;
     }
 
 
@@ -38,7 +39,7 @@ public class AddPersonDialog extends Dialog {
         MaterialButton submitButton = findViewById(R.id.submit_btn);
         newNameEdit = findViewById(R.id.new_name_edit);
 
-        //Set on click listeners
+        //Listener adds new person to profile and closes popup
         submitButton.setOnClickListener($ ->{
             String newName = newNameEdit.getText().toString();
             UserRestrictionsViewModel userRestrictionsViewModel = ProfileScreenFragment.getUserRestrictionsViewModel();
@@ -47,9 +48,7 @@ public class AddPersonDialog extends Dialog {
             dismiss();
         });
 
-        cancelButton.setOnClickListener($ -> {
-            dismiss();
-        });
+        cancelButton.setOnClickListener($ -> dismiss());
     }
 
 }

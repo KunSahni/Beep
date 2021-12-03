@@ -15,19 +15,20 @@ import com.illinois.beep.R;
 
 import java.util.List;
 
+/**
+ * This is an adapter which manages the RecyclerView used to remove persons.
+ * The class inflates the layout and manages all interactions with UI elements.
+ */
 public class RemovePersonListAdapter extends RecyclerView.Adapter<RemovePersonListAdapter.ViewHolder> {
 
-    private final String personName;
     private final Dialog parent;
     private final List<String> mData;
     private final LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public RemovePersonListAdapter(Context context, Dialog parent, List<String> data, String personName) {
+    public RemovePersonListAdapter(Context context, Dialog parent, List<String> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
-        this.personName = personName;
         this.parent = parent;
     }
 
@@ -69,20 +70,5 @@ public class RemovePersonListAdapter extends RecyclerView.Adapter<RemovePersonLi
             ProfileScreenFragment.getUserRestrictionsViewModel().delete(personName.getText().toString());
             parent.dismiss();
         }
-    }
-
-    // convenience method for getting data at click position
-    String getItem(int id) {
-        return mData.get(id);
-    }
-
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
     }
 }

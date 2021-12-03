@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 /**
  * This is now the access point for all data, to understand better what each query does,
- * check UserRestrictionsDao.java
+ * check method with same signature in UserRestrictionsDao.java
  */
 public class UserRestrictionsViewModel extends AndroidViewModel {
 
