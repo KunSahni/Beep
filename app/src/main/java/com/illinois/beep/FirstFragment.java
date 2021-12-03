@@ -105,14 +105,14 @@ public class FirstFragment extends Fragment {
             NavHostFragment.findNavController(FirstFragment.this)
                     .navigate(R.id.action_FirstFragment_to_TestFragment);
         });
-        settings.setOnClickListener(new View.OnClickListener() {
+        peopleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(FirstFragment.this.getActivity(), PopChecklist.class));
             }
         });
 
-        peopleBtn.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
